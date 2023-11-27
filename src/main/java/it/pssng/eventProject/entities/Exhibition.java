@@ -1,6 +1,5 @@
 package it.pssng.eventProject.entities;
 
-import com.sun.istack.NotNull;
 import jakarta.persistence.*;
 
 @Entity
@@ -10,18 +9,14 @@ public class Exhibition {
     //Table attributes
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private Long exhibitionCode;
 
-    @NotNull
+    private Long exhibitionCode;
     private int numberOfWorks;
-    @NotNull
+
     private int maximumCapacity;
     private String exhibitionTheme;
-    @NotNull
     private String description;
-    @NotNull
     private String location;
-    @NotNull
     private String dateAndTime;
 
     //Getters and Setters
