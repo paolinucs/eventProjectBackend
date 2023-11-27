@@ -12,11 +12,15 @@
 	<artifactId>eventProject</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>eventProject</name>
-	<description>Unversity Project at Università degli Studi di Napoli Parthenope</description>
+	<description>University Project at Università degli Studi di Napoli Parthenope</description>
 	<properties>
 		<java.version>21</java.version>
 	</properties>
 	<dependencies>
+		<dependency>
+			<groupId>org.hibernate.orm</groupId>
+			<artifactId>hibernate-community-dialects</artifactId>
+		</dependency>
 		<dependency>
 			<groupId>org.xerial</groupId>
 			<artifactId>sqlite-jdbc</artifactId>
