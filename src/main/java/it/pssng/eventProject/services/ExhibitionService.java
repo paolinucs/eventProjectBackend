@@ -1,6 +1,5 @@
 /**
  * File: ExhibitionService.java
- * Author: Paolo Coletta
  */
 
 package it.pssng.eventProject.services;
@@ -10,6 +9,11 @@ import it.pssng.eventProject.repositories.ExhibitionRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import java.util.List;
+
+/**
+ * Services are the first raw implementation of CRUD operations in your Spring Boot Backend.
+ * The annotation @Service has the purpose to reveal this class as a service
+ */
 
 @Service
 public class ExhibitionService {
@@ -21,6 +25,11 @@ public class ExhibitionService {
         this.exhibitionRepository = exhibitionRepository;
     }
 
+    /**
+     * In this section there are implemented all the methods about CRUD operation in the DB.
+     * Generally, for data which is obtained in group, you have to return it as a list of that specific entity,
+     * otherwise you have to return the single object.
+    **/
     public List<Exhibition> getAll(){
         return exhibitionRepository.findAll();
     }

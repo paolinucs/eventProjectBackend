@@ -1,11 +1,23 @@
+/**
+ * File: Exhibition.java
+ */
+
 package it.pssng.eventProject.entities;
 import jakarta.persistence.*;
+
+/**
+ * This is an entity bean. In a entity bean is declared all entity's attributes and their getters and setters
+ * Using the annotation @Entity we can use it as an entity bean in the Spring Boot Framework
+ */
 
 @Entity
 @Table(name="exhibitions")
 public class Exhibition {
 
-    //Table attributes
+    /**
+     * The @Id annotation makes the attribute 'exhibitionCode' the primary key of this entity
+     * @GeneratedValue is an annotation that gives to exhibitionCode the property to have a primary key with auto-increment.
+    **/
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long exhibitionCode;
