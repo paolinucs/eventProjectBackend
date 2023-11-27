@@ -1,0 +1,14 @@
+{
+    "configurations": [
+        {
+            "type": "java",
+            "name": "Spring Boot-EventProjectApplication<eventProject>",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "mainClass": "it.pssng.eventProject.EventProjectApplication",
+            "projectName": "eventProject",
+            "args": "",
+            "envFile": "${workspaceFolder}/.env"
+        }
+    ]
+}
