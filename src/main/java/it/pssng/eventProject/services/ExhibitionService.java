@@ -34,4 +34,8 @@ public class ExhibitionService {
         return exhibitionRepository.findAll();
     }
 
+    public Exhibition saveExhibition(Exhibition inputData){
+        return exhibitionRepository.save(inputData);
+    }
+
 }
