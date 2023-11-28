@@ -7,11 +7,8 @@ import it.pssng.eventProject.entities.Exhibition;
 import it.pssng.eventProject.services.ExhibitionService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
+
 import java.util.List;
 
 /**
@@ -54,5 +51,16 @@ public class ExhibitionController {
     public ResponseEntity<Exhibition> saveExhibition(@RequestBody Exhibition data){
         Exhibition save = exhibitionService.saveExhibition(data);
         return ResponseEntity.ok(save);
+    }
+
+    @GetMapping("/{exhibitionId}")
+    public ResponseEntity<Exhibition> getExhibitionById(@PathVariable Long exhibitionId){
+        Exhibition foundExhibition = exhibitionService.getExhibitionById(exhibitionId);
+        if(foundExhibition != null){
+            return ResponseEntity.ok(foundExhibition);
+        }
+        else{
+            return ResponseEntity.notFound().build();
+        }
     }
 }
