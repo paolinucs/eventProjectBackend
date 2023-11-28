@@ -8,6 +8,8 @@ import it.pssng.eventProject.services.ExhibitionService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import java.util.List;
@@ -18,7 +20,7 @@ import java.util.List;
  */
 
 @RestController
-@RequestMapping("/api/entities")
+@RequestMapping("/api/exhibitions")
 public class ExhibitionController {
 
     private final ExhibitionService exhibitionService;
@@ -46,5 +48,11 @@ public class ExhibitionController {
         else{
             return ResponseEntity.noContent().build();
         }
+    }
+
+    @PostMapping("/save_exh")
+    public ResponseEntity<Exhibition> saveExhibition(@RequestBody Exhibition data){
+        Exhibition save = exhibitionService.saveExhibition(data);
+        return ResponseEntity.ok(save);
     }
 }

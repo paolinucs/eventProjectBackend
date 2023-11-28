@@ -10,7 +10,6 @@ public class ArtWorks {
     private long ArtWorksCode;
 
     private String Name;
-
     private String Description;
 
     private String Date;
