@@ -42,10 +42,16 @@ public class ExhibitionService {
 
     public Exhibition getExhibitionById(Long inputId){
         Optional<Exhibition> foundExhibition =  exhibitionRepository.findById(inputId);
-        if (foundExhibition != null){
-            return  foundExhibition.get();
-        }else{
+       return foundExhibition.orElse(null);
+    }
+
+    public List<Exhibition> getExhibitionByLocation(Long inputLocation){
+        List<Exhibition> foundExhibition =  exhibitionRepository.findByLocation(inputLocation);
+        if (foundExhibition.isEmpty()){
             return null;
+        }
+        else{
+            return foundExhibition;
         }
     }
 

@@ -5,6 +5,10 @@
 package it.pssng.eventProject.repositories;
 import it.pssng.eventProject.entities.Exhibition;
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Query;
+
+import java.util.List;
+
 
 /**
  * In Spring Boot framework, repositories are interfaces that extends the already existing JpaRepository.
@@ -13,5 +17,8 @@ import org.springframework.data.jpa.repository.JpaRepository;
 
  // You must specify the Entity which this repository references to and the type of entity's primary key
 public interface ExhibitionRepository extends JpaRepository<Exhibition,Long> {
-    //override or overload if necessary
+    @Query(value = "SELECT * FROM exhibitions WHERE location = ?1", nativeQuery = true)
+    List<Exhibition> findByLocation(Long locationToSearch);
 }
+
+

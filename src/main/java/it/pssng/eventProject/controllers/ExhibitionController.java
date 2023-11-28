@@ -4,7 +4,9 @@
 
 package it.pssng.eventProject.controllers;
 import it.pssng.eventProject.entities.Exhibition;
+import it.pssng.eventProject.entities.Location;
 import it.pssng.eventProject.services.ExhibitionService;
+import it.pssng.eventProject.services.LocationService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -23,7 +25,7 @@ public class ExhibitionController {
     private final ExhibitionService exhibitionService;
 
     @Autowired
-    public ExhibitionController(ExhibitionService exhibitionService){
+    public ExhibitionController(ExhibitionService exhibitionService, LocationService locationService){
         this.exhibitionService = exhibitionService;
     }
 
@@ -56,11 +58,24 @@ public class ExhibitionController {
     @GetMapping("/{exhibitionId}")
     public ResponseEntity<Exhibition> getExhibitionById(@PathVariable Long exhibitionId){
         Exhibition foundExhibition = exhibitionService.getExhibitionById(exhibitionId);
-        if(foundExhibition != null){
+        if(foundExhibition == null){
             return ResponseEntity.ok(foundExhibition);
         }
         else{
-            return ResponseEntity.notFound().build();
+            return ResponseEntity.noContent().build();
         }
     }
+
+    @GetMapping("/bylocation={exhibitionLocation}")
+    public ResponseEntity<List<Exhibition>> getExhibitionByLocation(@PathVariable Long exhibitionLocation){
+        List<Exhibition> foundExhibitions = exhibitionService.getExhibitionByLocation(exhibitionLocation);
+        if(!foundExhibitions.isEmpty()){
+            return ResponseEntity.ok(foundExhibitions);
+        }else{
+            return ResponseEntity.noContent().build();
+        }
+
+
+    }
+
 }
