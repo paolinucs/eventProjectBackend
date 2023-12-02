@@ -6,7 +6,7 @@ import jakarta.persistence.*;
 public class Artist {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private long Artist_ID;
+    private long Artist_FiscaCode;
     
     private String Artist_Name;
 
@@ -18,8 +18,8 @@ public class Artist {
 
     private String Artist_UserName;
 
-    public long getArtistID(){
-        return Artist_ID;
+    public long getArtist_FiscaCode(){
+        return Artist_FiscaCode;
     }
 
     public String getArtistName(){
@@ -42,8 +42,8 @@ public class Artist {
         return Artist_UserName;
     }
 
-    public void setArtistID(long artist_id){
-        Artist_ID = artist_id;
+    public void setArtist_FiscaCode(long artist_fiscalcode){
+        Artist_FiscaCode = artist_fiscalcode;
     }
 
     public void setArtistName(String artist_name){
