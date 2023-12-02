@@ -6,11 +6,11 @@ import jakarta.persistence.*;
 public class User{
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-
+    @Column(name = "Username")
     private String UserName;
-
+    @Column(name = "Password")
     private String Password;
-
+    @Column(name = "Role")
     private String Role;
 
     public String getUserName() {

@@ -6,20 +6,21 @@ import jakarta.persistence.*;
 public class Artist {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private long Artist_FiscaCode;
-    
+    @Column(name = "ArtistFiscalCode")
+    private long Artist_FiscalCode;
+    @Column(name = "ArtistName")
     private String Artist_Name;
-
+    @Column(name = "ArtistSurname")
     private String Artist_Surname;
-
+    @Column(name = "ArtistEmailAddress")
     private String Artist_Email_Address;
-
+    @Column(name = "PhoneNumber")
     private String Phone_Number;
-
+    @Column(name = "ArtistUserName")
     private String Artist_UserName;
 
-    public long getArtist_FiscaCode(){
-        return Artist_FiscaCode;
+    public long getArtist_FiscalCode(){
+        return Artist_FiscalCode;
     }
 
     public String getArtistName(){
@@ -42,8 +43,8 @@ public class Artist {
         return Artist_UserName;
     }
 
-    public void setArtist_FiscaCode(long artist_fiscalcode){
-        Artist_FiscaCode = artist_fiscalcode;
+    public void setArtist_FiscalCode(long artist_fiscalcode){
+        Artist_FiscalCode = artist_fiscalcode;
     }
 
     public void setArtistName(String artist_name){

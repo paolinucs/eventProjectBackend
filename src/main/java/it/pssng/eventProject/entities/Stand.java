@@ -6,13 +6,13 @@ import jakarta.persistence.*;
 public class Stand {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-
+    @Column(name = "StandID")
     private Long Stand_ID;
-
+    @Column(name = "EventID")
     private Long Event_ID;
-
+    @Column(name = "ArtistID")
     private Long Artist_ID;
-
+    @Column(name = "isTaken")
     private boolean is_taken;
 
     public Long getStand_ID() {

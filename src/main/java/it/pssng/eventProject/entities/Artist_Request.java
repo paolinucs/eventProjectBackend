@@ -6,13 +6,13 @@ import jakarta.persistence.*;
 public class Artist_Request {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-
+    @Column(name = "RequestID")
     private Long requet_ID;
-
+    @Column(name = "ArtistID")
     private String Artist_ID;
-
+    @Column(name = "StandID")
     private Long Stand_ID;
-
+    @Column(name = "idAccepted")
     private boolean is_accepted;
 
     public Long getRequet_ID() {

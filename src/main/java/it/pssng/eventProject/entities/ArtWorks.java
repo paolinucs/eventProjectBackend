@@ -6,14 +6,15 @@ import jakarta.persistence.*;
 public class ArtWorks {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-
+    @Column(name = "ArtworksID")
     private long ArtWorks_ID;
-
+    @Column(name = "ArtworksName")
     private String ArtWorks_Name;
+    @Column(name = "ArtworksDescription")
     private String ArtWorks_Description;
-
+    @Column(name = "ArtworksDate")
     private String ArtWorks_Date;
-
+    @Column(name = "StandID")
     private String Stand_Id;
 
     public long getArtWorks_ID() {
