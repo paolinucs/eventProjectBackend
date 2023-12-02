@@ -7,50 +7,52 @@ public class ArtWorks {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
 
-    private long ArtWorksCode;
+    private long ArtWorks_ID;
 
-    private String Name;
-    private String Description;
+    private String ArtWorks_Name;
+    private String ArtWorks_Description;
 
-    private String Date;
+    private String ArtWorks_Date;
 
-    private String FiscalCode;
+    private String Stand_Id;
 
-
-    public long getArtWorksCode() {
-        return ArtWorksCode;
+    public long getArtWorks_ID() {
+        return ArtWorks_ID;
     }
 
-    public String getName() {
-        return Name;
+    public String getArtWorks_Name() {
+        return ArtWorks_Name;
     }
 
-    public String getDescription() {
-        return Description;
+    public String getArtWorks_Description() {
+        return ArtWorks_Description;
     }
 
-    public String getDate() {
-        return Date;
+    public String getArtWorks_Date() {
+        return ArtWorks_Date;
     }
 
-    public void setFiscalCode(String fiscalCode) {
-        FiscalCode = fiscalCode;
+    public String getStand_Id() {
+        return Stand_Id;
     }
 
-    public void setArtWorksCode(long artWorksCode) {
-        ArtWorksCode = artWorksCode;
+    public void setArtWorks_ID(long artWorks_ID) {
+        ArtWorks_ID = artWorks_ID;
     }
 
-    public void setDate(String date) {
-        Date = date;
+    public void setArtWorks_Name(String artWorks_Name) {
+        ArtWorks_Name = artWorks_Name;
     }
 
-    public void setDescription(String description) {
-        Description = description;
+    public void setArtWorks_Description(String artWorks_Description) {
+        ArtWorks_Description = artWorks_Description;
     }
 
-    public void setName(String name) {
-        Name = name;
+    public void setArtWorks_Date(String artWorks_Date) {
+        ArtWorks_Date = artWorks_Date;
     }
 
+    public void setStand_Id(String stand_Id) {
+        Stand_Id = stand_Id;
+    }
 }
