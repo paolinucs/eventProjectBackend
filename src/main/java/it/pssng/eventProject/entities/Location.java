@@ -7,9 +7,11 @@ public class Location {
     //ATTRIBUTES
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
+    @Column(name="location_id")
     public Long idLocation;
-
+    @Column(name="location_address")
     public String locationAddress;
+    @Column(name="max_customers")
     public int maxCustomers;
 
     //GETTERS

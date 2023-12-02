@@ -4,11 +4,13 @@
 
 package it.pssng.eventProject.services;
 
+
 import it.pssng.eventProject.entities.Exhibition;
 import it.pssng.eventProject.repositories.ExhibitionRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import java.util.List;
+import java.util.Optional;
 
 /**
  * Services are the first raw implementation of CRUD operations in your Spring Boot Backend.
@@ -36,6 +38,21 @@ public class ExhibitionService {
 
     public Exhibition saveExhibition(Exhibition inputData){
         return exhibitionRepository.save(inputData);
+    }
+
+    public Exhibition getExhibitionById(Long inputId){
+        Optional<Exhibition> foundExhibition =  exhibitionRepository.findById(inputId);
+       return foundExhibition.orElse(null);
+    }
+
+    public List<Exhibition> getExhibitionByLocation(Long inputLocation){
+        List<Exhibition> foundExhibition =  exhibitionRepository.findByLocation(inputLocation);
+        if (foundExhibition.isEmpty()){
+            return null;
+        }
+        else{
+            return foundExhibition;
+        }
     }
 
 }

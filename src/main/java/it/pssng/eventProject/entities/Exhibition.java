@@ -20,14 +20,26 @@ public class Exhibition {
     **/
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
+    @Column(name="exhibition_code")
     private Long exhibitionCode;
-    private int numberOfWorks;
-    private int maximumCapacity;
+    @Column(name="number_of_works")
+    private int numberOfWorks = 0;
+    @Column(name="maximum_capacity")
+    private int maximumCapacity = 0;
+    @Column(name="exhibition_theme")
     private String exhibitionTheme;
+    @Column(name="description")
     private String description;
-    private String location;
+    @Column(name = "location")
+    private Long location;
+    @Column(name="date_and_time")
     private String dateAndTime;
 
+    /**
+    @OneToOne(cascade = CascadeType.ALL) //da rivedere
+    @JoinColumn(name="location",referencedColumnName = "location_id")
+    private Location joinedLocation;
+**/
     //Getters and Setters
     public Long getExhibitionCode() {
         return exhibitionCode;
@@ -53,7 +65,7 @@ public class Exhibition {
         return description;
     }
 
-    public String getLocation() {
+    public Long getLocation() {
         return location;
     }
 
@@ -73,7 +85,7 @@ public class Exhibition {
         this.exhibitionTheme = exhibitionTheme;
     }
 
-    public void setLocation(String location) {
+    public void setLocation(Long location) {
         this.location = location;
     }
 
