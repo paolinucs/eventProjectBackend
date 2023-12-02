@@ -7,53 +7,43 @@ public class Stand {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
 
-    private Long standCode;
+    private Long Stand_ID;
 
-    private String artWorksName;
+    private Long Event_ID;
 
-    private String exhibitionName;
+    private Long Artist_ID;
 
-    private String Name;
+    private boolean is_taken;
 
-    private String description;
-
-    public String getDescription() {
-        return description;
+    public Long getStand_ID() {
+        return Stand_ID;
     }
 
-    public String getName() {
-        return Name;
+    public Long getEvent_ID() {
+        return Event_ID;
     }
 
-    public Long getStandCode() {
-        return standCode;
+    public Long getArtist_ID() {
+        return Artist_ID;
     }
 
-    public String getArtWorksName() {
-        return artWorksName;
+    public boolean isIs_taken() {
+        return is_taken;
     }
 
-    public String getExhibitionName() {
-        return exhibitionName;
+    public void setStand_ID(Long stand_ID) {
+        Stand_ID = stand_ID;
     }
 
-    public void setDescription(String description) {
-        this.description = description;
+    public void setEvent_ID(Long event_ID) {
+        Event_ID = event_ID;
     }
 
-    public void setName(String name) {
-        Name = name;
+    public void setArtist_ID(Long artist_ID) {
+        Artist_ID = artist_ID;
     }
 
-    public void setArtWorksName(String artWorksName) {
-        this.artWorksName = artWorksName;
-    }
-
-    public void setStandCode(Long standCode) {
-        this.standCode = standCode;
-    }
-
-    public void setExhibitionName(String exhibitionName) {
-        this.exhibitionName = exhibitionName;
+    public void setIs_taken(boolean is_taken) {
+        this.is_taken = is_taken;
     }
 }
