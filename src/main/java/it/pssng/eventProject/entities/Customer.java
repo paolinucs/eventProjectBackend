@@ -8,48 +8,57 @@ public class Customer {
     //ATTRIBUTES
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private String idCode;
-    private Long phoneNumber;
-    private String eMail;
-    private String name;
-    private int age;
+    @Column(name="Fiscal_code")
+    private String fiscalCode;
+    @Column(name = "Customer_name")
+    private String customerName;
+    @Column(name = "Customer_surname")
+    private String customerSurname;
+    @Column(name = "Customer_email")
+    private String customerEmail;
+    @Column(name = "Phone_Number")
+    private String phoneNumber;
+    @Column(name = "Customer_username")
+    private String customerUsername;
 
     //GETTER
-    public String getidCode(){
-        return idCode;
+    public String getFiscalCode(){
+        return fiscalCode;
     }
-    public Long getPhoneNumber(){
+    public String getCustomerName(){
+        return customerName;
+    }
+    public String getCustomerSurname(){
+        return customerSurname;
+    }
+    public String getCustomerEmail(){
+        return customerEmail;
+    }
+    public String getPhoneNumber(){
         return phoneNumber;
     }
-    public String geteMail(){
-        return eMail;
-    }
-    public String getName(){
-        return name;
-    }
-    public int getAge(){
-        return age;
-    }
+    public String getCustomerUsername(){return customerUsername; }
 
     //SETTER
 
-    public void setIdCode(String idCode) {
-        this.idCode = idCode;
+    public void setFiscalCode(String fiscalCode) {
+        this.fiscalCode = fiscalCode;
     }
 
-    public void setPhoneNumber(Long phoneNumber) {
+    public void setCustomerName(String customerName) {
+        this.customerName = customerName;
+    }
+
+    public void setCustomerSurname(String customerSurname) {
+        this.customerSurname = customerSurname;
+    }
+
+    public void setCustomerEmail(String customerEmail) {
+        this.customerEmail = customerEmail;
+    }
+
+    public void setPhoneNumber(String phoneNumber) {
         this.phoneNumber = phoneNumber;
     }
-
-    public void seteMail(String eMail) {
-        this.eMail = eMail;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public void setAge(int age) {
-        this.age = age;
-    }
+    public void setCustomerUsername(String customerUsername) {this.customerUsername = customerUsername; }
 }
