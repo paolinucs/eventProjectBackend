@@ -1,5 +1,5 @@
 /**
- * File: Exhibition.java
+ * File: ArtWork.java
  */
 
 package it.pssng.eventProject.entities;
@@ -11,8 +11,8 @@ import jakarta.persistence.*;
  */
 
 @Entity
-@Table(name="exhibitions")
-public class Exhibition {
+@Table(name="artworks")
+public class ArtWork {
 
     /**
      * The @Id annotation makes the attribute 'exhibitionCode' the primary key of this entity

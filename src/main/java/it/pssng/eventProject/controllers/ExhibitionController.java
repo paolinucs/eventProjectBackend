@@ -3,9 +3,8 @@
  */
 
 package it.pssng.eventProject.controllers;
-import it.pssng.eventProject.entities.Exhibition;
-import it.pssng.eventProject.entities.Location;
-import it.pssng.eventProject.services.ExhibitionService;
+import it.pssng.eventProject.entities.ArtWork;
+import it.pssng.eventProject.services.ArtWorkService;
 import it.pssng.eventProject.services.LocationService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -22,10 +21,10 @@ import java.util.List;
 @RequestMapping("/api/exhibitions")
 public class ExhibitionController {
 
-    private final ExhibitionService exhibitionService;
+    private final ArtWorkService exhibitionService;
 
     @Autowired
-    public ExhibitionController(ExhibitionService exhibitionService, LocationService locationService){
+    public ExhibitionController(ArtWorkService exhibitionService, LocationService locationService){
         this.exhibitionService = exhibitionService;
     }
 
@@ -34,8 +33,8 @@ public class ExhibitionController {
      * GET request at the URL, for example, https://pssngexample.xyz/api/entities/all_exh
      */
     @GetMapping("/all_exh")
-    public ResponseEntity<List<Exhibition>> getAllExhibitions(){
-        List<Exhibition> returnTuples = exhibitionService.getAll();
+    public ResponseEntity<List<ArtWork>> getAllArtWorks(){
+        List<ArtWork> returnTuples = exhibitionService.getAll();
         /**
          * In this method there are also handled errors in the request:
          * If the getAll function of exhibitionService does not return empty data, you can return a response (with your data obv)
@@ -50,14 +49,14 @@ public class ExhibitionController {
     }
 
     @PostMapping("/save_exh")
-    public ResponseEntity<Exhibition> saveExhibition(@RequestBody Exhibition data){
-        Exhibition save = exhibitionService.saveExhibition(data);
+    public ResponseEntity<ArtWork> saveExhibition(@RequestBody ArtWork data){
+        ArtWork save = exhibitionService.saveExhibition(data);
         return ResponseEntity.ok(save);
     }
 
     @GetMapping("/{exhibitionId}")
-    public ResponseEntity<Exhibition> getExhibitionById(@PathVariable Long exhibitionId){
-        Exhibition foundExhibition = exhibitionService.getExhibitionById(exhibitionId);
+    public ResponseEntity<ArtWork> getExhibitionById(@PathVariable Long exhibitionId){
+        ArtWork foundExhibition = exhibitionService.getExhibitionById(exhibitionId);
         if(foundExhibition == null){
             return ResponseEntity.ok(foundExhibition);
         }
@@ -67,8 +66,8 @@ public class ExhibitionController {
     }
 
     @GetMapping("/bylocation={exhibitionLocation}")
-    public ResponseEntity<List<Exhibition>> getExhibitionByLocation(@PathVariable Long exhibitionLocation){
-        List<Exhibition> foundExhibitions = exhibitionService.getExhibitionByLocation(exhibitionLocation);
+    public ResponseEntity<List<ArtWork>> getExhibitionByLocation(@PathVariable Long exhibitionLocation){
+        List<ArtWork> foundExhibitions = exhibitionService.getExhibitionByLocation(exhibitionLocation);
         if(!foundExhibitions.isEmpty()){
             return ResponseEntity.ok(foundExhibitions);
         }else{

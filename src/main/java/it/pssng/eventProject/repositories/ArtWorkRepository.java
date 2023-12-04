@@ -3,10 +3,9 @@
  */
 
 package it.pssng.eventProject.repositories;
-import it.pssng.eventProject.entities.Exhibition;
+import it.pssng.eventProject.entities.ArtWork;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
-
 import java.util.List;
 
 
@@ -16,9 +15,9 @@ import java.util.List;
  */
 
  // You must specify the Entity which this repository references to and the type of entity's primary key
-public interface ExhibitionRepository extends JpaRepository<Exhibition,Long> {
+public interface ArtWorkRepository extends JpaRepository<ArtWork,Long> {
     @Query(value = "SELECT * FROM exhibitions WHERE location = ?1", nativeQuery = true)
-    List<Exhibition> findByLocation(Long locationToSearch);
+    List<ArtWork> findByLocation(Long locationToSearch);
 }
 
 
