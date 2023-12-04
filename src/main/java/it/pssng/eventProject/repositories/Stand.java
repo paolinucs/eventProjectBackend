@@ -1,4 +1,4 @@
-package it.pssng.eventProject.entities;
+package it.pssng.eventProject.repositories;
 import jakarta.persistence.*;
 @Entity
 
