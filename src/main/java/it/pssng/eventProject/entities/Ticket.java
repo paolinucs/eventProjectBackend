@@ -11,51 +11,30 @@ public class Ticket {
     //ATTRIBUTES
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
+    @Column(name="Ticket_id")
     private Long ticketCode;
-    private Long exhibitionCode;
-    private String idCode;
-    private String purchaseDate;
-    private String exhibitionDate;
-    private Float price;
+    @Column(name = "Customer_id")
+    private String customerId;
+    @Column(name = "Event_id")
+    private Long eventId;
+
 
     //GETTERS
     public Long getTicketCode() {
         return ticketCode;
     }
-    public Long getExhibitionCode(){
-        return  exhibitionCode;
-    }
-    public String getIdCode(){
-        return idCode;
-    }
-    public String getPurchaseDate() {
-        return purchaseDate;
-    }
-    public String getExhibitionDate() {
-        return exhibitionDate;
-    }
-
-    public Float getPrice() {
-        return price;
+    public String getCustomerId(){return customerId;}
+    public Long getEventId(){
+        return eventId;
     }
 
     //SETTERS
     public void setTicketCode(Long ticketCode) {
         this.ticketCode = ticketCode;
     }
-    public void setExhibitionCode(Long exhibitionCode) {
-        this.exhibitionCode = exhibitionCode;
+    public void setExhibitionCode(String customerId) { this.customerId = customerId; }
+    public void setIdCode(Long eventId) {
+        this.eventId = eventId;
     }
-    public void setIdCode(String idCode) {
-        this.idCode = idCode;
-    }
-    public void setPurchaseDate(String purchaseDate) {
-        this.purchaseDate = purchaseDate;
-    }
-    public void setExhibitionDate(String exhibitionDate) {
-        this.exhibitionDate = exhibitionDate;
-    }
-    public void setPrice(Float price) {
-        this.price = price;
-    }
+
 }
