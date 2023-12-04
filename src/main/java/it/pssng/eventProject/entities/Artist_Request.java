@@ -7,7 +7,7 @@ public class Artist_Request {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "RequestID")
-    private Long requet_ID;
+    private Long request_ID;
     @Column(name = "ArtistID")
     private String Artist_ID;
     @Column(name = "StandID")
@@ -16,7 +16,7 @@ public class Artist_Request {
     private boolean is_accepted;
 
     public Long getRequet_ID() {
-        return requet_ID;
+        return request_ID;
     }
     public Long getStand_ID() {
         return Stand_ID;
@@ -30,8 +30,8 @@ public class Artist_Request {
         return is_accepted;
     }
 
-    public void setRequet_ID(Long requet_ID) {
-        this.requet_ID = requet_ID;
+    public void setRequet_ID(Long request_ID) {
+        this.request_ID = request_ID;
     }
 
     public void setArtist_ID(String artist_ID) {

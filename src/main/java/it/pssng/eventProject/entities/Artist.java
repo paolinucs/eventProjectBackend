@@ -7,7 +7,7 @@ public class Artist {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "ArtistFiscalCode")
-    private long Artist_FiscalCode;
+    private String Artist_FiscalCode;
     @Column(name = "ArtistName")
     private String Artist_Name;
     @Column(name = "ArtistSurname")
@@ -19,7 +19,7 @@ public class Artist {
     @Column(name = "ArtistUserName")
     private String Artist_UserName;
 
-    public long getArtist_FiscalCode(){
+    public String getArtist_FiscalCode(){
         return Artist_FiscalCode;
     }
 
@@ -43,7 +43,7 @@ public class Artist {
         return Artist_UserName;
     }
 
-    public void setArtist_FiscalCode(long artist_fiscalcode){
+    public void setArtist_FiscalCode(String artist_fiscalcode){
         Artist_FiscalCode = artist_fiscalcode;
     }
 
