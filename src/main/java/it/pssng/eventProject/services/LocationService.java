@@ -5,6 +5,7 @@ import it.pssng.eventProject.repositories.LocationRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
 import java.util.Optional;
 @Service
 public class LocationService {
@@ -19,6 +20,10 @@ public class LocationService {
     public Location findLocationById(Long locationId){
         Optional<Location> foundLocation = locationRepository.findById(locationId);
         return foundLocation.orElse(null);
+    }
+    public List<Location> findLocationAll(){
+       List<Location> foundLocation = locationRepository.findAll();
+       return foundLocation;
     }
 
 }
