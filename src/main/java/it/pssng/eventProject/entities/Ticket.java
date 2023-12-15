@@ -1,8 +1,12 @@
 package it.pssng.eventProject.entities;
 
 import jakarta.persistence.*;
+import lombok.Getter;
+import lombok.Setter;
 
 @Entity
+@Getter
+@Setter
 @Table(name = "tickets")
 public class Ticket {
 
@@ -15,31 +19,4 @@ public class Ticket {
     private String customerId;
     @Column(name = "Event_id")
     private Long eventId;
-
-    // GETTERS
-    public Long getTicketCode() {
-        return ticketCode;
-    }
-
-    public String getCustomerId() {
-        return customerId;
-    }
-
-    public Long getEventId() {
-        return eventId;
-    }
-
-    // SETTERS
-    public void setTicketCode(Long ticketCode) {
-        this.ticketCode = ticketCode;
-    }
-
-    public void setExhibitionCode(String customerId) {
-        this.customerId = customerId;
-    }
-
-    public void setIdCode(Long eventId) {
-        this.eventId = eventId;
-    }
-
 }

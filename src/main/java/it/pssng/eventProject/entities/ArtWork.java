@@ -5,6 +5,8 @@
 package it.pssng.eventProject.entities;
 
 import jakarta.persistence.*;
+import lombok.Getter;
+import lombok.Setter;
 
 /**
  * This is an entity bean. In a entity bean is declared all entity's attributes
@@ -14,6 +16,8 @@ import jakarta.persistence.*;
  */
 
 @Entity
+@Getter
+@Setter
 @Table(name = "artworks")
 public class ArtWork {
 
@@ -47,60 +51,4 @@ public class ArtWork {
      *                                                  private Location
      *                                                  joinedLocation;
      **/
-    // Getters and Setters
-    public Long getExhibitionCode() {
-        return exhibitionCode;
-    }
-
-    public int getNumberOfWorks() {
-        return numberOfWorks;
-    }
-
-    public int getMaximumCapacity() {
-        return maximumCapacity;
-    }
-
-    public String getDateAndTime() {
-        return dateAndTime;
-    }
-
-    public String getExhibitionTheme() {
-        return artworkTheme;
-    }
-
-    public String getDescription() {
-        return description;
-    }
-
-    public Long getLocation() {
-        return location;
-    }
-
-    public void setDateAndTime(String dateAndTime) {
-        this.dateAndTime = dateAndTime;
-    }
-
-    public void setDescription(String description) {
-        this.description = description;
-    }
-
-    public void setExhibitionCode(Long exhibitionCode) {
-        this.exhibitionCode = exhibitionCode;
-    }
-
-    public void setExhibitionTheme(String artworkTheme) {
-        this.artworkTheme = artworkTheme;
-    }
-
-    public void setLocation(Long location) {
-        this.location = location;
-    }
-
-    public void setMaximumCapacity(int maximumCapacity) {
-        this.maximumCapacity = maximumCapacity;
-    }
-
-    public void setNumberOfWorks(int numberOfWorks) {
-        this.numberOfWorks = numberOfWorks;
-    }
 }

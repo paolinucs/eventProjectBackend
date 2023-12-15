@@ -1,7 +1,11 @@
 package it.pssng.eventProject.entities;
 import jakarta.persistence.*;
-@Entity
+import lombok.Getter;
+import lombok.Setter;
 
+@Entity
+@Getter
+@Setter
 @Table(name="user")
 public class User{
     @Id
@@ -12,28 +16,4 @@ public class User{
     private String Password;
     @Column(name = "Role")
     private String Role;
-
-    public String getUserName() {
-        return UserName;
-    }
-
-    public String getPassword() {
-        return Password;
-    }
-
-    public String getRole() {
-        return Role;
-    }
-
-    public void setUserName(String userName) {
-        UserName = userName;
-    }
-
-    public void setPassword(String password) {
-        Password = password;
-    }
-
-    public void setRole(String role) {
-        Role = role;
-    }
 }
