@@ -1,11 +1,15 @@
 package it.pssng.eventProject.entities;
 import jakarta.persistence.*;
+import lombok.Getter;
+import lombok.Setter;
 
 @Entity
 @Table(name = "event_request")
+@Getter
+@Setter
 public class EventRequest {
     @Id
-    @GeneratedValue(strategy =  GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "request_id")
     private Long eventRequestId;
     @Column(name = "promoter_id")
@@ -21,57 +25,4 @@ public class EventRequest {
     @Column(name = "is_accepted")
     private boolean isAccepted;
 
-    //getters and setters
-
-    public Long getEventRequestId(){
-        return this.eventRequestId;
-    }
-
-    public Long getPromoterId(){
-        return this.promoterId;
-    }
-
-    public Long getLocationId(){
-        return this.locationId;
-    }
-
-    public String getPermissionDocumentURL(){
-        return this.permissionDocumentURL;
-    }
-
-    public String getPromoterIdCardURL(){
-        return this.promoterIdCardURL;
-    }
-
-    public String getEventRequestDate(){
-        return this.eventRequestDate;
-    }
-
-    public void setEventRequestId(Long id){
-        this.eventRequestId = id;
-    }
-
-    public void setLocationId(Long locationId) {
-        this.locationId = locationId;
-    }
-
-    public void setEventRequestDate(String eventRequestDate) {
-        this.eventRequestDate = eventRequestDate;
-    }
-
-    public void setAccepted(boolean accepted) {
-        isAccepted = accepted;
-    }
-
-    public void setPermissionDocumentURL(String permissionDocumentURL) {
-        this.permissionDocumentURL = permissionDocumentURL;
-    }
-
-    public void setPromoterId(Long promoterId) {
-        this.promoterId = promoterId;
-    }
-
-    public void setPromoterIdCardURL(String promoterIdCardURL) {
-        this.promoterIdCardURL = promoterIdCardURL;
-    }
 }
