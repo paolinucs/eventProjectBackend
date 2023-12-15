@@ -2,37 +2,42 @@ package it.pssng.eventProject.entities;
 
 import jakarta.persistence.*;
 
-import java.util.Date;
-
 @Entity
 @Table(name = "tickets")
 public class Ticket {
 
-    //ATTRIBUTES
+    // ATTRIBUTES
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column(name="Ticket_id")
+    @Column(name = "Ticket_id")
     private Long ticketCode;
     @Column(name = "Customer_id")
     private String customerId;
     @Column(name = "Event_id")
     private Long eventId;
 
-
-    //GETTERS
+    // GETTERS
     public Long getTicketCode() {
         return ticketCode;
     }
-    public String getCustomerId(){return customerId;}
-    public Long getEventId(){
+
+    public String getCustomerId() {
+        return customerId;
+    }
+
+    public Long getEventId() {
         return eventId;
     }
 
-    //SETTERS
+    // SETTERS
     public void setTicketCode(Long ticketCode) {
         this.ticketCode = ticketCode;
     }
-    public void setExhibitionCode(String customerId) { this.customerId = customerId; }
+
+    public void setExhibitionCode(String customerId) {
+        this.customerId = customerId;
+    }
+
     public void setIdCode(Long eventId) {
         this.eventId = eventId;
     }

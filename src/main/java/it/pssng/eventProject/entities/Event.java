@@ -1,6 +1,5 @@
 package it.pssng.eventProject.entities;
 import jakarta.persistence.*;
-import org.hibernate.annotations.CollectionId;
 
 @Entity
 @Table(name = "event")
