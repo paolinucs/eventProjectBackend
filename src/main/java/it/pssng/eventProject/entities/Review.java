@@ -14,7 +14,7 @@ public class Review {
     @Column(name = "review_text")
     private String reviewText;
     @Column(name = "review_rating")
-    private short reviewRating;
+    private Long reviewRating;
     @Column(name = "username")
     private String username;
 
@@ -25,7 +25,7 @@ public class Review {
         return reviewId;
     }
 
-    public short getReviewRating() {
+    public Long getReviewRating() {
         return reviewRating;
     }
 
@@ -45,7 +45,7 @@ public class Review {
         return username;
     }
 
-    public void setReviewRating(short reviewRating) {
+    public void setReviewRating(Long reviewRating) {
         this.reviewRating = reviewRating;
     }
 
