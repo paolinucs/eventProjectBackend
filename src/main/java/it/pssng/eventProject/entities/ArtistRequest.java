@@ -1,9 +1,11 @@
 package it.pssng.eventProject.entities;
+
 import jakarta.persistence.*;
+
 @Entity
 
-@Table(name="artist_request")
-public class Artist_Request {
+@Table(name = "artist_request")
+public class ArtistRequest {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "RequestID")
@@ -18,6 +20,7 @@ public class Artist_Request {
     public Long getRequet_ID() {
         return request_ID;
     }
+
     public Long getStand_ID() {
         return Stand_ID;
     }
