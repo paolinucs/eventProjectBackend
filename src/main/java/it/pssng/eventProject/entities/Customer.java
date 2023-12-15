@@ -1,7 +1,11 @@
 package it.pssng.eventProject.entities;
 import jakarta.persistence.*;
+import lombok.Getter;
+import lombok.Setter;
 
 @Entity
+@Getter
+@Setter
 @Table(name = "customers")
 public class Customer {
 
@@ -20,45 +24,4 @@ public class Customer {
     private String phoneNumber;
     @Column(name = "Customer_username")
     private String customerUsername;
-
-    //GETTER
-    public String getFiscalCode(){
-        return fiscalCode;
-    }
-    public String getCustomerName(){
-        return customerName;
-    }
-    public String getCustomerSurname(){
-        return customerSurname;
-    }
-    public String getCustomerEmail(){
-        return customerEmail;
-    }
-    public String getPhoneNumber(){
-        return phoneNumber;
-    }
-    public String getCustomerUsername(){return customerUsername; }
-
-    //SETTER
-
-    public void setFiscalCode(String fiscalCode) {
-        this.fiscalCode = fiscalCode;
-    }
-
-    public void setCustomerName(String customerName) {
-        this.customerName = customerName;
-    }
-
-    public void setCustomerSurname(String customerSurname) {
-        this.customerSurname = customerSurname;
-    }
-
-    public void setCustomerEmail(String customerEmail) {
-        this.customerEmail = customerEmail;
-    }
-
-    public void setPhoneNumber(String phoneNumber) {
-        this.phoneNumber = phoneNumber;
-    }
-    public void setCustomerUsername(String customerUsername) {this.customerUsername = customerUsername; }
 }
