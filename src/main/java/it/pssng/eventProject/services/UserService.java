@@ -1,20 +1,19 @@
 package it.pssng.eventProject.services;
+
 import it.pssng.eventProject.entities.User;
 import it.pssng.eventProject.repositories.UserRepository;
-import org.springframework.beans.factory.annotation.Autowired;
+import lombok.AllArgsConstructor;
+
 import org.springframework.stereotype.Service;
 
 import java.util.Optional;
 
-//aa
 @Service
+@AllArgsConstructor
 public class UserService {
-    private UserRepository userRepository;
+    private final UserRepository userRepository;
 
-    @Autowired
-    public UserService(UserRepository userRepository){this.userRepository = userRepository;}
-
-    public User findUserByUserName(String userName){
+    public User findUserByUserName(String userName) {
         Optional<User> foundStand = userRepository.findById(userName);
         return foundStand.orElse(null);
     }

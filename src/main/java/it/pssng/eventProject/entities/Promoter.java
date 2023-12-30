@@ -1,26 +1,27 @@
 package it.pssng.eventProject.entities;
+
 import jakarta.persistence.*;
-import lombok.Getter;
-import lombok.Setter;
+import lombok.Data;
 
 @Entity
 @Table(name = "promoter")
-@Getter
-@Setter
+@Data
 public class Promoter {
 
     @Id
-    @Column(name = "fiscal_code")
+    @Column(name = "promoter-fiscal-code")
     private String promoterFiscalCode;
-    @Column(name = "name")
+    @Column(name = "promoter-name")
     private String promoterName;
-    @Column(name = "surname")
+    @Column(name = "promoter-surname")
     private String promoterSurname;
-    @Column(name = "email")
+    @Column(name = "promoter-email", unique = true)
     private String promoterEmailAddress;
-    @Column(name = "phone")
+    @Column(name = "promoter-phone")
     private String promoterPhoneNumber;
-    @Column(name = "username")
-    private String promoterUsername;
+
+    @OneToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "username", referencedColumnName = "username")
+    private User joinedUser;
 
 }

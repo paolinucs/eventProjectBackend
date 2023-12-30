@@ -1,10 +1,8 @@
 package it.pssng.eventProject.dto;
 
-import lombok.Getter;
-import lombok.Setter;
+import lombok.Data;
 
-@Setter
-@Getter
+@Data
 public class EventDTO {
 
     private String eventName;

@@ -1,27 +1,27 @@
 package it.pssng.eventProject.entities;
+
 import jakarta.persistence.*;
-import lombok.Getter;
-import lombok.Setter;
+import lombok.Data;
 
 @Entity
-@Getter
-@Setter
+@Data
 @Table(name = "customers")
 public class Customer {
 
-    //ATTRIBUTES
+    // ATTRIBUTES
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column(name="Fiscal_code")
-    private String fiscalCode;
-    @Column(name = "Customer_name")
+    @Column(name = "customer-fiscal-code")
+    private String customerFiscalCode;
+    @Column(name = "customer-name")
     private String customerName;
-    @Column(name = "Customer_surname")
+    @Column(name = "customer-surname")
     private String customerSurname;
-    @Column(name = "Customer_email")
-    private String customerEmail;
-    @Column(name = "Phone_Number")
+    @Column(name = "phone-number")
     private String phoneNumber;
-    @Column(name = "Customer_username")
-    private String customerUsername;
+    @Column(name = "e-mail", unique = true)
+    private String customerEmail;
+
+    @OneToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "username", referencedColumnName = "username")
+    private User joinedUser;
 }

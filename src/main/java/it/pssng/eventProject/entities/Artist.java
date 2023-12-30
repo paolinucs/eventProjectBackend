@@ -1,30 +1,30 @@
 package it.pssng.eventProject.entities;
+
 import jakarta.persistence.*;
-import lombok.Getter;
-import lombok.Setter;
+import lombok.Data;
 
 @Entity
-@Getter
-@Setter
-@Table(name="artist")
+@Data
+@Table(name = "artist")
 public class Artist {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column(name = "artistFiscalCode")
+    @Column(name = "artist-fiscal-code")
     private String artistFiscalCode;
 
-    @Column(name = "artistName")
+    @Column(name = "artist-name")
     private String artistName;
 
-    @Column(name = "artistSurname")
+    @Column(name = "artist-surname")
     private String artistSurname;
 
-    @Column(name = "artistEmailAddress")
+    @Column(name = "artist-email-address")
     private String artistEmailAddress;
 
-    @Column(name = "phoneNumber")
+    @Column(name = "artist-phone-number")
     private String phoneNumber;
 
-    @Column(name = "artistUserName")
-    private String artistUserName;
+    @OneToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "username", referencedColumnName = "username")
+    private User joinedUser;
 }

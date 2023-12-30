@@ -1,31 +1,31 @@
 package it.pssng.eventProject.entities;
 
+import java.time.LocalDate;
+
 import jakarta.persistence.*;
-import lombok.Getter;
-import lombok.Setter;
+import lombok.Data;
 
-
-@Setter
-@Getter
 @Entity
 @Table(name = "Purchase")
+@Data
 public class Purchase {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column(name = "Purchase_id")
+    @Column(name = "purchase-id")
     public Long purchaseId;
 
-    @Column(name = "Purchase_date")
-    public String purchaseDate;
+    @Column(name = "purchase-date")
+    public LocalDate purchaseDate;
 
-    @Column(name = "Purchase_amount")
+    @Column(name = "purchase-amount")
     public Double purchaseAmount;
 
-    @Column(name = "Customer_id")
+    @OneToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "customer-id", referencedColumnName = "customer-id")
     public String customerId;
 
-    @Column(name = "Ticket_id")
-    public Long ticketId;
-
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "ticket-id", referencedColumnName = "ticket-id")
+    public Ticket joinedTicket;
 
 }

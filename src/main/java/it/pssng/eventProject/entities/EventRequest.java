@@ -1,28 +1,35 @@
 package it.pssng.eventProject.entities;
+
+import java.time.LocalDate;
+
 import jakarta.persistence.*;
-import lombok.Getter;
-import lombok.Setter;
+import lombok.Data;
 
 @Entity
 @Table(name = "event_request")
-@Getter
-@Setter
+@Data
 public class EventRequest {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column(name = "request_id")
+    @Column(name = "request-id")
     private Long eventRequestId;
-    @Column(name = "promoter_id")
-    private Long promoterId;
-    @Column(name = "location_id")
-    private Long locationId;
-    @Column(name = "permission_document")
-    private String permissionDocumentURL;
-    @Column(name = "promoter_id_card")
-    private String promoterIdCardURL;
-    @Column(name = "event_request_date")
-    private String eventRequestDate;
-    @Column(name = "is_accepted")
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "promoter-id", referencedColumnName = "promoter-id")
+    private Promoter joinedPromoter;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "location-id", referencedColumnName = "location-id")
+    @Column(name = "location-id")
+    private Location joinedLocation;
+
+    @Column(name = "permission-document")
+    private String permissionDocumentPath;
+    @Column(name = "promoter-id-card")
+    private String promoterIdCardPath;
+    @Column(name = "event-request-date")
+    private LocalDate eventRequestDate;
+    @Column(name = "is-accepted")
     private boolean isAccepted;
 
 }

@@ -1,25 +1,28 @@
 package it.pssng.eventProject.entities;
+
+import java.time.LocalDateTime;
+
 import jakarta.persistence.*;
-import lombok.Getter;
-import lombok.Setter;
+import lombok.Data;
 
 @Entity
-@Getter
-@Setter
+@Data
 @Table(name = "event")
 public class Event {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column(name = "event_id")
+    @Column(name = "event-id")
     private Long eventId;
-    @Column(name = "event_name")
+    @Column(name = "event-name")
     private String eventName;
-    @Column(name = "maximum_capacity")
+    @Column(name = "maximum-capacity")
     private int maximumCapacity;
-    @Column(name = "event_date")
-    private String eventDate;
-    @Column(name = "event_category")
+    @Column(name = "event-date")
+    private LocalDateTime eventDate;
+    @Column(name = "event-category")
     private String eventCategory;
-    @Column(name = "location_id")
+
+    @OneToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "location-id", referencedColumnName = "location-id")
     private Long locationId;
 }

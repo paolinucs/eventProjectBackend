@@ -1,28 +1,33 @@
 package it.pssng.eventProject.entities;
+
 import jakarta.persistence.*;
-import lombok.Getter;
-import lombok.Setter;
+import lombok.Data;
 
 @Entity
 @Table(name = "location")
-@Getter
-@Setter
+@Data
 public class Location {
 
-    //ATTRIBUTES
+    // ATTRIBUTES
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column(name = "Location_id")
+    @Column(name = "location-id")
     private Long locationId;
-    @Column(name = "Location_address")
+
+    @Column(name = "location-address")
     private String locationAddress;
-    @Column(name = "Max_customers")
+
+    @Column(name = "max-customers")
     private Long maxCustomers;
-    @Column(name = "Location_name")
+
+    @Column(name = "location-name")
     private String locationName;
-    @Column(name = "Location_description")
+
+    @Column(name = "location-description")
     private String locationDescription;
-    @Column(name = "Promoter_id")
-    private String promoterId;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "promoter-id", referencedColumnName = "promoter-id")
+    private Promoter promoterId;
 
 }

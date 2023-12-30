@@ -1,25 +1,21 @@
 package it.pssng.eventProject.entities;
 
 import jakarta.persistence.*;
-import lombok.Getter;
-import lombok.Setter;
+import lombok.Data;
 
 @Entity
-@Getter
-@Setter
+@Data
 @Table(name = "artist_request")
 public class ArtistRequest {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column(name = "requestID")
+    @Column(name = "request-id")
     private Long requestID;
 
-    @Column(name = "artistID")
-    private String artistID;
+    @ManyToMany(fetch = FetchType.LAZY)
+    @JoinColumn(name = "artist-fiscal-code", referencedColumnName = "artist-fiscal-code")
+    private Artist joinedArtist;
 
-    @Column(name = "standID")
-    private Long standID;
-
-    @Column(name = "isAccepted")
+    @Column(name = "is-accepted")
     private boolean isAccepted;
 }
