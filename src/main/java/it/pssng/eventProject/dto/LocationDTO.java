@@ -6,13 +6,9 @@ import lombok.Data;
 public class LocationDTO {
 
     private String locationAddress;
-
     private Long maxCustomers;
-
     private String locationName;
-
     private String locationDescription;
-
     private String promoterId;
 
 }

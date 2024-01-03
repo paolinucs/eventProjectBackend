@@ -1,5 +1,6 @@
 package it.pssng.eventProject.services;
 
+import it.pssng.eventProject.entities.Customer;
 import it.pssng.eventProject.entities.Ticket;
 import it.pssng.eventProject.repositories.TicketRepository;
 import lombok.AllArgsConstructor;
@@ -17,16 +18,30 @@ public class TicketService {
     // RICERCA TRAMITE ID
     public Ticket findTicketById(Long ticketCode) {
         // OPTIONAL PERCHÉ POTREBBE NON ESSERCI- FINDBYID FUNZIONE PRESENTE IN
-        // JDAREPOSITORY
+        // JPAREPOSITORY
         Optional<Ticket> foundTicket = ticketRepository.findById(ticketCode);
         // RESTITUISCE L'ELEMENTO TROVATO ALTRIMENTI NULL
         return foundTicket.orElse(null);
     }
 
     public List<Ticket> findTicketAll() {
-        // FIND ALL FUNZIONE PRESENTE IN JDAREPOSITORY
+        // FIND ALL FUNZIONE PRESENTE IN JPAREPOSITORY
         List<Ticket> foundTicket = ticketRepository.findAll();
         return foundTicket;
+    }
+
+    public Ticket saveTicket(Ticket data) {
+        return ticketRepository.save(data);
+    }
+
+    public boolean deleteTicket(Ticket data) {
+        try {
+            ticketRepository.delete(data);
+        } catch (Exception exc) {
+            throw new RuntimeException();
+        }
+
+        return true;
     }
 
 }

@@ -1,7 +1,5 @@
 package it.pssng.eventProject.entities;
 
-import java.time.LocalDate;
-
 import jakarta.persistence.*;
 import lombok.Data;
 
@@ -11,16 +9,15 @@ import lombok.Data;
 public class EventRequest {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column(name = "request-id")
+    @Column(name = "event-request-id")
     private Long eventRequestId;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "promoter-id", referencedColumnName = "promoter-id")
+    @JoinColumn(name = "promoter-fiscal-code", referencedColumnName = "promoter-fiscal-code")
     private Promoter joinedPromoter;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "location-id", referencedColumnName = "location-id")
-    @Column(name = "location-id")
     private Location joinedLocation;
 
     @Column(name = "permission-document")
@@ -28,7 +25,7 @@ public class EventRequest {
     @Column(name = "promoter-id-card")
     private String promoterIdCardPath;
     @Column(name = "event-request-date")
-    private LocalDate eventRequestDate;
+    private String eventRequestDate;
     @Column(name = "is-accepted")
     private boolean isAccepted;
 

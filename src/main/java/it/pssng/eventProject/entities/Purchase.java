@@ -1,7 +1,5 @@
 package it.pssng.eventProject.entities;
 
-import java.time.LocalDate;
-
 import jakarta.persistence.*;
 import lombok.Data;
 
@@ -15,14 +13,14 @@ public class Purchase {
     public Long purchaseId;
 
     @Column(name = "purchase-date")
-    public LocalDate purchaseDate;
+    public String purchaseDate;
 
     @Column(name = "purchase-amount")
     public Double purchaseAmount;
 
     @OneToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "customer-id", referencedColumnName = "customer-id")
-    public String customerId;
+    @JoinColumn(name = "customer-fiscal-code", referencedColumnName = "customer-fiscal-code")
+    public Customer JoinedCustomer;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "ticket-id", referencedColumnName = "ticket-id")

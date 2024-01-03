@@ -27,7 +27,7 @@ public class Location {
     private String locationDescription;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "promoter-id", referencedColumnName = "promoter-id")
+    @JoinColumn(name = "promoter-fiscal-code", referencedColumnName = "promoter-fiscal-code")
     private Promoter promoterId;
 
 }

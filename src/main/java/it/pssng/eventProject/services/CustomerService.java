@@ -14,7 +14,7 @@ import java.util.Optional;
 public class CustomerService {
     private CustomerRepository customerRepository;
 
-    public Customer findCustomerById(String fiscalCode) {
+    public Customer findCustomerByFiscalCode(String fiscalCode) {
         Optional<Customer> foundCustomer = customerRepository.findById(fiscalCode);
         return foundCustomer.orElse(null);
     }
@@ -22,6 +22,20 @@ public class CustomerService {
     public List<Customer> findListAll() {
         List<Customer> foundCustomer = customerRepository.findAll();
         return foundCustomer;
+    }
+
+    public Customer saveCustomer(Customer data) {
+        return customerRepository.save(data);
+    }
+
+    public boolean deleteCustomer(Customer data) {
+        try {
+            customerRepository.delete(data);
+        } catch (Exception exc) {
+            throw new RuntimeException();
+        }
+
+        return true;
     }
 
 }

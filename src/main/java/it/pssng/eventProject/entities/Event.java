@@ -1,7 +1,5 @@
 package it.pssng.eventProject.entities;
 
-import java.time.LocalDateTime;
-
 import jakarta.persistence.*;
 import lombok.Data;
 
@@ -18,11 +16,11 @@ public class Event {
     @Column(name = "maximum-capacity")
     private int maximumCapacity;
     @Column(name = "event-date")
-    private LocalDateTime eventDate;
+    private String eventDate;
     @Column(name = "event-category")
     private String eventCategory;
 
     @OneToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "location-id", referencedColumnName = "location-id")
-    private Long locationId;
+    private Location joinedLocation;
 }

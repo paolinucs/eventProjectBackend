@@ -5,6 +5,7 @@ import lombok.Data;
 @Data
 public class EventDTO {
 
+    private Long eventId;
     private String eventName;
     private int maximumCapacity;
     private String eventDate;

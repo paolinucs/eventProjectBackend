@@ -2,34 +2,39 @@ package it.pssng.eventProject.entities;
 
 import java.time.LocalDate;
 
-import jakarta.persistence.*;
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.FetchType;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.OneToOne;
+import jakarta.persistence.Table;
 import lombok.Data;
 
 @Entity
-@Table(name = "purchase-request")
 @Data
+@Table(name = "purchase-request")
 public class PurchaseRequest {
+
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column(name = "purchaserequest-id")
-    public Long purchaseRequestId;
+    @Column(name = "purchase-request-id")
+    private Long purchaseRequestId;
 
-    @Column(name = "purchaserequest-date")
-    public LocalDate purchaseRequestDate;
+    @Column(name = "purchase-request-date")
+    private LocalDate purchaseRequestDate;
 
-    @Column(name = "puchaserequest-amount")
-    public Double purchaseRequestAmount;
+    @Column(name = "purchase-request-amount")
+    private Double purchaseRequestAmount;
 
-    @Column(name = "eventrequest-id")
-    public Long eventRequestId;
+    @OneToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "event-request-id", referencedColumnName = "event-request-id")
+    private EventRequest joinedEventRequest;
 
-    @Column(name = "artistrequest-id")
-    public Long artistRequestId;
-
-    @Column(name = "event-id")
-    public Long eventId;
-
-    @Column(name = "stand-id")
-    public Long standId;
+    @OneToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "artist-request-id", referencedColumnName = "artist-request-id")
+    private ArtistRequest joinedArtistRequest;
 
 }

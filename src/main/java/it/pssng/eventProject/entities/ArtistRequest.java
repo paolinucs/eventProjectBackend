@@ -9,10 +9,10 @@ import lombok.Data;
 public class ArtistRequest {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column(name = "request-id")
+    @Column(name = "artist-request-id")
     private Long requestID;
 
-    @ManyToMany(fetch = FetchType.LAZY)
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "artist-fiscal-code", referencedColumnName = "artist-fiscal-code")
     private Artist joinedArtist;
 

@@ -1,24 +1,25 @@
 package it.pssng.eventProject.entities;
+
 import jakarta.persistence.*;
-import lombok.Getter;
-import lombok.Setter;
+import lombok.Data;
 
 @Entity
 @Table
-@Getter
-@Setter
+@Data
 public class Review {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column(name = "review_id")
+    @Column(name = "review-id")
     private Long reviewId;
-    @Column(name = "review_title")
+    @Column(name = "review-title")
     private String reviewTitle;
-    @Column(name = "review_text")
+    @Column(name = "review-text")
     private String reviewText;
-    @Column(name = "review_rating")
+    @Column(name = "review-rating")
     private Long reviewRating;
-    @Column(name = "username")
-    private String username;
+
+    @OneToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "username", referencedColumnName = "username")
+    private User joinedUser;
 }
