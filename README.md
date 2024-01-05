@@ -7,10 +7,38 @@ Gli sviluppatori che si sono dedicati allo sviluppo del software sono presenti a
 #### Tecnologie utilizzate:
 - Spring Boot
 - SQLite3
-- Brevo
+- Docker
 
 ##### :information_source: Questa versione del software contiene molte falle a livello di sicurezza e performance. Il suo attuale scopo è quello di essere un supporto per il sostenimento dell'esame di Tecnologie Web. Successivamente, per l'esame di Programmazione III e reti saranno implementate funzionalità e design pattern ad-hoc.
 
+
+## Setup
+
+Il software si avvale di alcuni servizi locali per l'emulazione di alcuni servizi che dovrebbero trovarsi su server remoti (es. server email).
+
+E' possibile configurare l'ambiente di esecuzione con un file di configurazione di Docker grazie a ```docker-compose``` (ancora in fase di stesura e test):
+
+```yaml
+version: '3.8'
+services:
+  mail:
+    image: mailserver/docker-mailserver:latest
+    container_name: mailserver
+    command: tail -f /dev/null
+    hostname: localhost
+    domainname: eventProject
+    ports:
+      - "9000:25"
+      - "9001:143"
+      - "9002:587"
+      - "9003:993"
+    environment:
+      - ENABLE_SPAMASSASSIN=1
+      - ENABLE_CLAMAV=1
+      - SMTP_USER=devtest
+      - SMTP_PASSWORD=devpassword
+```
+Verrà configurato un server SMTP locale al quale verrà collegato automaticamente il software per poter simulare le features che richiedono un account di posta. Tutto ciò è possibile grazie al progetto open-source ```docker-mailserver``` ``` (https://github.com/docker-mailserver/docker-mailserver)```
 
 ## API
 
