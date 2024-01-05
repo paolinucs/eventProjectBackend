@@ -8,7 +8,7 @@ Gli sviluppatori che si sono dedicati allo sviluppo del software sono presenti a
 - Spring Boot
 - SQLite3
 
-##### N.B questa versione del software contiene molte falle a livello di sicurezza e performance. Il suo attuale scopo è quello di essere un supporto per il sostenimento dell'esame di Tecnologie Web. Successivamente, per l'esame di Programmazione III e reti saranno implementate funzionalità e design pattern ad-hoc.
+##### :information_source: questa versione del software contiene molte falle a livello di sicurezza e performance. Il suo attuale scopo è quello di essere un supporto per il sostenimento dell'esame di Tecnologie Web. Successivamente, per l'esame di Programmazione III e reti saranno implementate funzionalità e design pattern ad-hoc.
 
 
 ## API
@@ -101,7 +101,7 @@ Gli sviluppatori che si sono dedicati allo sviluppo del software sono presenti a
     ```
 #### Eliminare un evento esistente per ID
 
-N.b per chiamare questo API bisogna prima avere il JSON completo della tupla che si desidera eliminare.
+N.B. per chiamare questo API bisogna prima avere il JSON completo della tupla che si desidera eliminare.
 
 Bisognerà quindi passare in input tutto il JSON, se non lo si possiede bisogna prima ottenere tutti i dati relativi a un singolo evento per ID.
 
@@ -121,6 +121,8 @@ Bisognerà quindi passare in input tutto il JSON, se non lo si possiede bisogna 
     ```
 
 
+### Richieste eventi
+
 
 
 
@@ -130,5 +132,4 @@ da fare:
 
 - nuova richiesta evento
 - elimina richiesta evento
-- eventi per categoriaok
 - utenti e clienti, registrazione e autenticazione
