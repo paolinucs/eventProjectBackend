@@ -4,7 +4,7 @@ import jakarta.persistence.*;
 import lombok.Data;
 
 @Entity
-@Table(name = "event_request")
+@Table(name = "event-request")
 @Data
 public class EventRequest {
     @Id
@@ -16,10 +16,6 @@ public class EventRequest {
     @JoinColumn(name = "promoter-fiscal-code", referencedColumnName = "promoter-fiscal-code")
     private Promoter joinedPromoter;
 
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "location-id", referencedColumnName = "location-id")
-    private Location joinedLocation;
-
     @Column(name = "permission-document")
     private String permissionDocumentPath;
     @Column(name = "promoter-id-card")
@@ -28,5 +24,13 @@ public class EventRequest {
     private String eventRequestDate;
     @Column(name = "is-accepted")
     private boolean isAccepted;
+    @Column(name = "location-address")
+    private String locationAddress;
+    @Column(name = "max-customers")
+    private Long maxCustomers;
+    @Column(name = "location-name")
+    private String locationName;
+    @Column(name = "location-description")
+    private String locationDescription;
 
 }
