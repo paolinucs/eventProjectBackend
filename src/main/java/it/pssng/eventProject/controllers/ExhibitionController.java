@@ -5,8 +5,8 @@
 package it.pssng.eventProject.controllers;
 
 import it.pssng.eventProject.dto.ArtworkDTO;
-import it.pssng.eventProject.entities.ArtWork;
-import it.pssng.eventProject.services.ArtWorkService;
+import it.pssng.eventProject.model.ArtWork;
+import it.pssng.eventProject.services.business.ArtWorkService;
 import lombok.AllArgsConstructor;
 
 import org.modelmapper.ModelMapper;
