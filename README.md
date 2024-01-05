@@ -7,6 +7,7 @@ Gli sviluppatori che si sono dedicati allo sviluppo del software sono presenti a
 #### Tecnologie utilizzate:
 - Spring Boot
 - SQLite3
+- Brevo
 
 ##### :information_source: Questa versione del software contiene molte falle a livello di sicurezza e performance. Il suo attuale scopo è quello di essere un supporto per il sostenimento dell'esame di Tecnologie Web. Successivamente, per l'esame di Programmazione III e reti saranno implementate funzionalità e design pattern ad-hoc.
 
@@ -207,4 +208,21 @@ Bisognerà quindi passare in input tutto il JSON, se non lo si possiede bisogna 
      "locationDescription": "Il freddo qui non è ben accetto"
     }
     ]
+    ```
+
+### Ticket di supporto
+
+E' possibile inviare ticket di supporto tramite mail con chiamata API
+
+- API URL: :link:```/api/email/send_support_ticket```
+- Request Method: ```POST```
+- JSON input example:
+
+    ```json
+    {
+    "userRealName": "Mario",
+    "userRealSurname": "Rossi",
+    "userEmail": "rossimario@example.xyz",
+    "ticketDescription": "Come mai non riesco a comprare nessun biglietto? C'è scritto pagamento rifiutato per saldo insufficiente!!!"
+    }
     ```
