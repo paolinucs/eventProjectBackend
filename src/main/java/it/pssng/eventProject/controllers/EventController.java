@@ -65,7 +65,7 @@ public class EventController {
             return ResponseEntity.ok(fetchedEvent);
         }
 
-        LOGGER.info("Operation /api/events/by_category ended succesfully");
+        LOGGER.info("Operation /api/events/by_id ended succesfully");
         return ResponseEntity.noContent().build();
     }
 
@@ -76,11 +76,11 @@ public class EventController {
     public ResponseEntity<EventDTO> saveNewEvent(EventDTO data) throws EventNotFoundException {
         try {
             EventDTO savedEventData = eventDtoService.createNewEvent(data);
-            LOGGER.info("/api/events/by_category/new ended succesfully");
+            LOGGER.info("/api/by_category/new ended succesfully");
             return ResponseEntity.ok(savedEventData);
 
         } catch (EventNotFoundException exc) {
-            LOGGER.info("Operation /api/events/by_category/new cannot be ended because of invalid json input\n" + exc);
+            LOGGER.info("Operation /api/by_category/new cannot be ended because of invalid json input\n" + exc);
             return ResponseEntity.badRequest().build();
         }
     }
@@ -92,10 +92,10 @@ public class EventController {
     public void deleteExistingEvent(EventDTO data) {
         try {
             eventDtoService.deleteEvent(data);
-            LOGGER.info("Operation /api/events/by_category/delete ended succesfully");
+            LOGGER.info("Operation /api/events/delete ended succesfully");
             ResponseEntity.ok().build();
         } catch (Exception exc) {
-            LOGGER.info("Operation /api/events/by_category/delete cannot be ended succesfully\n" + exc);
+            LOGGER.info("Operation /api/events/delete cannot be ended succesfully\n" + exc);
             ResponseEntity.internalServerError().build();
         }
     }

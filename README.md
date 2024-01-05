@@ -17,7 +17,7 @@ Gli sviluppatori che si sono dedicati allo sviluppo del software sono presenti a
 
 #### Creazione di un nuovo evento
 
-- API URL :link: : ```/api/events/new```
+- API URL: :link:```/api/events/new```
 - Request Method: ```POST```
 - JSON input example:
     ```json
@@ -33,7 +33,7 @@ Gli sviluppatori che si sono dedicati allo sviluppo del software sono presenti a
 
 #### Ottenere i dettagli di tutti gli eventi
 
-- API URL :link: : ```/api/events/get_all```
+- API URL: :link:```/api/events/get_all```
 - Request Method: ```GET```
 - JSON output example:
     ```json
@@ -59,7 +59,7 @@ Gli sviluppatori che si sono dedicati allo sviluppo del software sono presenti a
     ```
 #### Ottenere i dettagli di più eventi, filtrandoli per categoria
 
-- API URL :link: : ```/api/events/by_category/{your_category}```
+- API URL: :link:```/api/events/by_category/{your_category}```
 - Request Method: ```GET```
 - JSON output example:
     ```json
@@ -85,7 +85,7 @@ Gli sviluppatori che si sono dedicati allo sviluppo del software sono presenti a
     ```
 #### Ottenere i dettagli di un singolo evento, filtrando per ID
 
-- API URL :link: : ```/api/events/by_id/{your_id}```
+- API URL: :link:```/api/events/by_id/{your_id}```
 - Request Method: ```GET```
 - JSON output example:
     ```json
@@ -99,13 +99,13 @@ Gli sviluppatori che si sono dedicati allo sviluppo del software sono presenti a
     "eventRegion": "Lazio"
     }
     ```
-#### Eliminare un evento esistente per ID
+#### Eliminare un evento esistente
 
 N.B. per chiamare questo API bisogna prima avere il JSON completo della tupla che si desidera eliminare.
 
 Bisognerà quindi passare in input tutto il JSON, se non lo si possiede bisogna prima ottenere tutti i dati relativi a un singolo evento per ID.
 
-- API URL :link: : ```/api/events/delete```
+- API URL: :link:```/api/events/delete```
 - Request Method: ```POST```
 - JSON input example:
     ```json
@@ -124,12 +124,87 @@ Bisognerà quindi passare in input tutto il JSON, se non lo si possiede bisogna 
 ### Richieste eventi
 
 
+#### Registrare una nuova richiesta evento
+
+- API URL: :link:```/api/event_requests/get_all```
+- Request Method: ```POST```
+- JSON input example:
+    ```json
+    {
+     "promoterId": 2,
+     "permissionDocumentPath": "permesso.png",
+     "promoterIdCardPath": "carta_identita.png",
+     "locationAddress": "Via La Boutique 10,1234,Springfield",
+     "maxCustomers": 90,
+     "locationName": "La luna di perla",
+     "locationDescription": "Un luogo incantevole al chiaro di luna"
+    }
+    ```
 
 
+#### Eliminare una richiesta esistente
+N.B. per chiamare questo API bisogna prima avere il JSON completo della tupla che si desidera eliminare.
 
+Bisognerà quindi passare in input tutto il JSON, se non lo si possiede bisogna prima ottenere tutti i dati relativi a un singolo evento (ex. per ID).
 
-da fare:
+- API URL: :link:```/api/event_requests/delete```
+- Request Method: ```POST```
+- JSON input example:
+    ```json
+    {
+     "eventRequestId": 1,
+     "promoterId": 2,
+     "permissionDocumentPath": "permesso.png",
+     "promoterIdCardPath": "carta_identita.png",
+     "locationAddress": "Via La Boutique 10,1234,Springfield",
+     "maxCustomers": 90,
+     "locationName": "La luna di perla",
+     "locationDescription": "Un luogo incantevole al chiaro di luna"
+    }
+    ```
+#### Ottenere i dettagli di una singola Richiesta, filtrando per ID
 
-- nuova richiesta evento
-- elimina richiesta evento
-- utenti e clienti, registrazione e autenticazione
+- API URL: :link:```/api/event_requests/by_id/{your_id}```
+- Request Method: ```GET```
+- JSON output example:
+    ```json
+    {
+     "eventRequestId": 1,
+     "promoterId": 2,
+     "permissionDocumentPath": "permesso.png",
+     "promoterIdCardPath": "carta_identita.png",
+     "locationAddress": "Via La Boutique 10,1234,Springfield",
+     "maxCustomers": 90,
+     "locationName": "La luna di perla",
+     "locationDescription": "Un luogo incantevole al chiaro di luna"
+    }
+    ```
+#### Ottenere i dettagli di tutti gli eventi
+
+- API URL: :link:```/api/event_requests/get_all```
+- Request Method: ```GET```
+- JSON output example:
+    ```json
+    [
+    {
+     "eventRequestId": 1,
+     "promoterId": 2,
+     "permissionDocumentPath": "permesso.png",
+     "promoterIdCardPath": "carta_identita.png",
+     "locationAddress": "Via La Boutique 10,1234,Springfield",
+     "maxCustomers": 90,
+     "locationName": "La luna di perla",
+     "locationDescription": "Un luogo incantevole al chiaro di luna"
+    }
+    {
+     "eventRequestId": 2,
+     "promoterId": 4,
+     "permissionDocumentPath": "permesso.png",
+     "promoterIdCardPath": "carta_identita.png",
+     "locationAddress": "Via Intossiche,4321,Zuzzulo",
+     "maxCustomers": 68,
+     "locationName": "Il mezzogiorno di fuoco",
+     "locationDescription": "Il freddo qui non è ben accetto"
+    }
+    ]
+    ```
