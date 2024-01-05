@@ -17,7 +17,7 @@ Gli sviluppatori che si sono dedicati allo sviluppo del software sono presenti a
 
 #### Creazione di un nuovo evento
 
-- API URL: ```/api/events/by_category/new```
+- API URL: ```/api/events/new```
 - Request Method: ```POST```
 - JSON input example:
     ```json
@@ -33,7 +33,7 @@ Gli sviluppatori che si sono dedicati allo sviluppo del software sono presenti a
 
 #### Ottenere i dettagli di tutti gli eventi
 
-- API URL: ```/api/events/by_category/get_all```
+- API URL: ```/api/events/get_all```
 - Request Method: ```GET```
 - JSON output example:
     ```json
@@ -59,7 +59,7 @@ Gli sviluppatori che si sono dedicati allo sviluppo del software sono presenti a
     ```
 #### Ottenere i dettagli di più eventi, filtrandoli per categoria
 
-- API URL: ```/api/events/by_category/by_category/{your_category}```
+- API URL: ```/api/events/by_category/{your_category}```
 - Request Method: ```GET```
 - JSON output example:
     ```json
@@ -85,7 +85,7 @@ Gli sviluppatori che si sono dedicati allo sviluppo del software sono presenti a
     ```
 #### Ottenere i dettagli di un singolo evento, filtrando per ID
 
-- API URL: ```/api/events/by_category/by_id/{your_id}```
+- API URL: ```/api/events/by_id/{your_id}```
 - Request Method: ```GET```
 - JSON output example:
     ```json
@@ -105,7 +105,7 @@ N.b per chiamare questo API bisogna prima avere il JSON completo della tupla che
 
 Bisognerà quindi passare in input tutto il JSON, se non lo si possiede bisogna prima ottenere tutti i dati relativi a un singolo evento per ID.
 
-- API URL: ```/api/events/by_category/by_id/```
+- API URL: ```/api/events/delete```
 - Request Method: ```POST```
 - JSON input example:
     ```json
