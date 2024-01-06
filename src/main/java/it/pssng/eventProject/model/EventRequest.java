@@ -32,5 +32,11 @@ public class EventRequest {
     private String locationName;
     @Column(name = "location-description")
     private String locationDescription;
+    @Column(name = "event-expected-start")
+    private String expectedEventStart;
+    @Column(name = "event-expected-end")
+    private String expectedEventEnd;
+    @Column(name = "event-name")
+    private String eventName;
 
 }

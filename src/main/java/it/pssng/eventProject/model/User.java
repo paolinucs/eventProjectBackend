@@ -5,14 +5,16 @@ import lombok.Data;
 
 @Entity
 @Data
-@Table(name = "user")
+@Table(name = "user-data")
 public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column(name = "Username")
+    @Column(name = "user-id")
+    private Long userId;
+    @Column(name = "fiscal-code", unique = true)
     private String UserName;
-    @Column(name = "Password")
+    @Column(name = "password")
     private String Password;
-    @Column(name = "Role")
+    @Column(name = "role")
     private String Role;
 }

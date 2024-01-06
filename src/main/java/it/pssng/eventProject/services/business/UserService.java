@@ -13,8 +13,13 @@ import java.util.Optional;
 public class UserService {
     private final UserRepository userRepository;
 
-    public User findUserByUserName(String userName) {
-        Optional<User> foundStand = userRepository.findById(userName);
-        return foundStand.orElse(null);
+    public User saveNewUser(User newUserData) {
+        return userRepository.save(newUserData);
     }
+
+    public User findUserByFiscalCode(String fiscalCode) {
+        Optional<User> fetchedUser = userRepository.findUserByFiscalCode(fiscalCode);
+        return fetchedUser.orElse(null);
+    }
+
 }

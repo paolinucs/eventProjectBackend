@@ -1,6 +1,7 @@
 package it.pssng.eventProject.controllers;
 
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -17,6 +18,7 @@ public class EmailController {
 
     private final TicketSupportMailService contactUsService;
 
+    @CrossOrigin(origins = "http://localhost:3000")
     @PostMapping("/send_support_ticket")
     public void sendTestEmail(@RequestBody TicketSupport ticket) {
         contactUsService.sendNewTicket(ticket);

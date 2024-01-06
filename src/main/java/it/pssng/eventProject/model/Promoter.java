@@ -9,19 +9,24 @@ import lombok.Data;
 public class Promoter {
 
     @Id
-    @Column(name = "promoter-fiscal-code")
-    private String promoterFiscalCode;
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    @Column(name = "promoter-id")
+    private Long promoterId;
+    @OneToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "promoter-fiscal-code", referencedColumnName = "fiscal-code")
+    private User promoterFiscalCode;
     @Column(name = "promoter-name")
     private String promoterName;
+    @Column(name = "promoter-birthdate")
+    private String promoterBirthDate;
     @Column(name = "promoter-surname")
     private String promoterSurname;
-    @Column(name = "promoter-email", unique = true)
-    private String promoterEmailAddress;
-    @Column(name = "promoter-phone")
-    private String promoterPhoneNumber;
+    @Column(name = "promoter-city")
+    private String promoterCity;
+    @Column(name = "promoter-nationality")
+    private String promoterNationality;
+    @Column(name = "e-mail", unique = true)
+    private String promoterEmail;
 
-    @OneToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "username", referencedColumnName = "username")
-    private User joinedUser;
 
 }

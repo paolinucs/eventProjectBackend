@@ -24,4 +24,8 @@ public class PromoterService {
         Optional<Promoter> fetchedPromoter = promoterRepository.findById(query);
         return fetchedPromoter.orElse(null);
     }
+
+    public Promoter savePromoter(Promoter data) {
+        return promoterRepository.save(data);
+    }
 }

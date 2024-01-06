@@ -10,18 +10,25 @@ public class Customer {
 
     // ATTRIBUTES
     @Id
-    @Column(name = "customer-fiscal-code")
-    private String customerFiscalCode;
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    @Column(name = "customer-id")
+    private Long customerId;
+    @OneToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "customer-fiscal-code", referencedColumnName = "fiscal-code")
+    private User customerFiscalCode;
     @Column(name = "customer-name")
     private String customerName;
+    @Column(name = "customer-birthdate")
+    private String customerBirthDate;
     @Column(name = "customer-surname")
     private String customerSurname;
-    @Column(name = "phone-number")
-    private String phoneNumber;
+    @Column(name = "customer-city")
+    private String customerCity;
+    @Column(name = "customer-nationality")
+    private String customerNationality;
     @Column(name = "e-mail", unique = true)
     private String customerEmail;
+    public void setPromoterName(String name) {
+    }
 
-    @OneToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "username", referencedColumnName = "username")
-    private User joinedUser;
 }

@@ -9,8 +9,12 @@ import lombok.Data;
 public class Artist {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column(name = "artist-fiscal-code")
-    private String artistFiscalCode;
+    @Column(name = "artist-id")
+    private Long artistId;
+
+    @OneToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name="artist-fiscal-code", referencedColumnName = "fiscal-code")
+    private User artistFiscalCode;
 
     @Column(name = "artist-name")
     private String artistName;
@@ -23,8 +27,4 @@ public class Artist {
 
     @Column(name = "artist-phone-number")
     private String phoneNumber;
-
-    @OneToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "username", referencedColumnName = "username")
-    private User joinedUser;
 }

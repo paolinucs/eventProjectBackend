@@ -20,6 +20,6 @@ public class Review {
     private Long reviewRating;
 
     @OneToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "username", referencedColumnName = "username")
+    @JoinColumn(name = "fiscal-code", referencedColumnName = "fiscal-code")
     private User joinedUser;
 }

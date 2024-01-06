@@ -9,8 +9,11 @@ public class EventRequestDTO {
     private String permissionDocumentPath;
     private String promoterIdCardPath;
     private String eventRequestDate;
+    private String expectedEventStart;
+    private String expectedEventEnd;
     private boolean isAccepted;
-    
+    private String eventName;
+
     private String locationAddress;
     private Long maxCustomers;
     private String locationName;
