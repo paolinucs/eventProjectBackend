@@ -5,7 +5,7 @@ import lombok.Data;
 @Data
 public class EventRequestDTO {
     private Long eventRequestId;
-    private Long promoterId;
+    private String promoterFiscalCode;
     private String permissionDocumentPath;
     private String promoterIdCardPath;
     private String eventRequestDate;
@@ -18,7 +18,6 @@ public class EventRequestDTO {
     private String eventPicPath;
     private Double eventPrice;
     private String eventCategory;
-
     private String locationAddress;
     private Long maxCustomers;
     private String locationName;

@@ -1,11 +1,15 @@
 package it.pssng.eventProject.services.mail;
 
+import java.util.Optional;
+
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 
 import it.pssng.eventProject.dto.EventRequestDTO;
 import it.pssng.eventProject.model.Promoter;
+import it.pssng.eventProject.model.User;
 import it.pssng.eventProject.services.business.PromoterService;
+import it.pssng.eventProject.services.business.UserService;
 import lombok.RequiredArgsConstructor;
 
 @RequiredArgsConstructor
@@ -20,16 +24,19 @@ public class RequestMailService {
 
         private final GenericMailClass genericMailClass;
         private final PromoterService promoterService;
+        private final UserService userService;
 
         public void sendEventRequestMail(EventRequestDTO eventRequestData) {
 
-                Promoter askingPromoter = promoterService.findPromoterById(eventRequestData.getPromoterId());
+                Optional<User> user = userService.findUserByFiscalCode(eventRequestData.getPromoterFiscalCode());
 
-                String mailSubject = "New Event Request from " + askingPromoter.getPromoterName() + " "
-                                + askingPromoter.getPromoterSurname() + "[request id."
+                Optional<Promoter> askingPromoter = promoterService.findPromoterByFiscalCode(user.get());
+
+                String mailSubject = "New Event Request from " + askingPromoter.get().getPromoterName() + " "
+                                + askingPromoter.get().getPromoterSurname() + "[request id."
                                 + eventRequestData.getEventRequestId() + "]";
 
-                String mailText = askingPromoter.getPromoterName() + " " + askingPromoter.getPromoterSurname()
+                String mailText = askingPromoter.get().getPromoterName() + " " + askingPromoter.get().getPromoterSurname()
                                 + " is requesting to host a new event.\n\n Request data:\n"
                                 + "Event name: "
                                 + eventRequestData.getEventName()
