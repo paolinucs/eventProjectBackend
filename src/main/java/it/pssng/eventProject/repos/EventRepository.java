@@ -11,4 +11,9 @@ public interface EventRepository extends JpaRepository<Event, Long> {
 
     @Query(value = "SELECT e FROM Event e WHERE e.eventCategory = ?1")
     List<Event> findAllEventsByCategory(String category);
+    
+    @Query("SELECT DISTINCT e.eventCategory FROM Event e")
+    List<String> findDistinctCategories();
+    
+
 }

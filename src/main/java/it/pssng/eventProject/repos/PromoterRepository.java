@@ -14,4 +14,6 @@ public interface PromoterRepository extends JpaRepository<Promoter, Long> {
     @Query("SELECT p FROM Promoter p WHERE p.promoterFiscalCode = :fiscalCode")
     public Optional<Promoter> findPromoterByFiscalCode(@Param("fiscalCode") User fiscalCode);
 
+    @Query("SELECT p FROM Promoter p WHERE p.promoterEmail = :email")
+    public Optional<Promoter> findPromoterByEmail(@Param("email") String email);
 }

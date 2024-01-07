@@ -4,6 +4,6 @@ import lombok.Data;
 
 @Data
 public class TicketDTO {
-    private String customerID;
+    private String userID;
     private Long eventID;
 }

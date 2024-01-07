@@ -24,8 +24,8 @@ public class Customer {
     private String customerSurname;
     @Column(name = "customer-city")
     private String customerCity;
-    @Column(name = "customer-nationality")
-    private String customerNationality;
+    @Column(name = "customer-address")
+    private String customerAddress;
     @Column(name = "e-mail", unique = true)
     private String customerEmail;
     public void setPromoterName(String name) {

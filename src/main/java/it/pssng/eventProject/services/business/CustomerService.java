@@ -43,4 +43,8 @@ public class CustomerService {
         return customerRepository.findCustomerByFiscalCode(fiscalCode);
     }
 
+    public Optional<Customer> findCustomerByEmail(String email){
+        return customerRepository.findCustomerByEmail(email);
+    }
+
 }

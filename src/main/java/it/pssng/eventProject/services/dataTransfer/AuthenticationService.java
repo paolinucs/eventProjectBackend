@@ -43,4 +43,12 @@ public class AuthenticationService {
         throw new UserNotFoundException();
     }
 
+    public boolean isCustomer(String key){
+        return key.equals(this.customerAuthKey);
+    }
+
+    public boolean isPromoter(String key){
+        return key.equals(this.promoterAuthKey);
+    }
+
 }

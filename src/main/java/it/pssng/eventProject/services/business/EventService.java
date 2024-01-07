@@ -1,11 +1,9 @@
 package it.pssng.eventProject.services.business;
 
 import it.pssng.eventProject.model.Event;
-import it.pssng.eventProject.dto.EventDTO;
 import it.pssng.eventProject.repos.EventRepository;
 import lombok.AllArgsConstructor;
 
-import org.modelmapper.ModelMapper;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -16,7 +14,6 @@ import java.util.Optional;
 public class EventService {
 
     private final EventRepository eventRepository;
-    private final ModelMapper modelMapper;
 
     public List<Event> getAllEvents() {
         List<Event> fetchedEvents = eventRepository.findAll();
@@ -40,12 +37,8 @@ public class EventService {
         return eventRepository.findAllEventsByCategory(category);
     }
 
-    public EventDTO convertToEventDTO(Event rawData) {
-        return modelMapper.map(rawData, EventDTO.class);
-    }
-
-    public Event convertToEvent(EventDTO rawDto) {
-        return modelMapper.map(rawDto, Event.class);
+    public List<String> getAllEventsCategories() {
+        return eventRepository.findDistinctCategories();
     }
 
 }

@@ -78,7 +78,7 @@ public class RegistrationDtoService {
         newCustomerData.setCustomerFiscalCode(newUserData);
         newCustomerData.setCustomerName(newData.getName());
         newCustomerData.setCustomerSurname(newData.getSurname());
-        newCustomerData.setCustomerNationality(newData.getNationality());
+        newCustomerData.setCustomerAddress(newData.getNationality());
         newCustomerData.setCustomerEmail(newData.getEmail());
         newCustomerData.setCustomerCity(newData.getCity());
         newCustomerData.setCustomerBirthDate(newData.getBirthDate());
@@ -89,7 +89,7 @@ public class RegistrationDtoService {
         returnData.setFiscalCode(savedCustomer.getCustomerFiscalCode().getFiscalCode());
         returnData.setName(savedCustomer.getCustomerName());
         returnData.setSurname(savedCustomer.getCustomerSurname());
-        returnData.setNationality(savedCustomer.getCustomerNationality());
+        returnData.setNationality(savedCustomer.getCustomerAddress());
         returnData.setEmail(savedCustomer.getCustomerEmail());
         returnData.setCity(savedCustomer.getCustomerCity());
         returnData.setBirthDate(savedCustomer.getCustomerBirthDate());

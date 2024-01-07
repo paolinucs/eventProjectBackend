@@ -1,6 +1,7 @@
 package it.pssng.eventProject.services.business;
 
 import it.pssng.eventProject.model.Ticket;
+import it.pssng.eventProject.model.User;
 import it.pssng.eventProject.repos.TicketRepository;
 import lombok.AllArgsConstructor;
 
@@ -31,6 +32,10 @@ public class TicketService {
 
     public Ticket saveTicket(Ticket data) {
         return ticketRepository.save(data);
+    }
+
+    public List<Ticket> getAllTicketsByUser(User data){
+        return ticketRepository.findTicketByUser(data);
     }
 
     public boolean deleteTicket(Ticket data) {

@@ -13,6 +13,11 @@ public class EventRequestDTO {
     private String expectedEventEnd;
     private boolean isAccepted;
     private String eventName;
+    private String eventDescription;
+    private String eventRegion;
+    private String eventPicPath;
+    private Double eventPrice;
+    private String eventCategory;
 
     private String locationAddress;
     private Long maxCustomers;

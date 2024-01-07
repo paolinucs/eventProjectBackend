@@ -25,4 +25,9 @@ public class LocationService {
         return foundLocation;
     }
 
+    public Location findLocationByNameAndAddress(String locationName, String locationAddress) {
+        Optional<Location> foundLocation = locationRepository.findByNameAndAddress(locationName, locationAddress);
+        return foundLocation.orElse(null);
+    }
+
 }

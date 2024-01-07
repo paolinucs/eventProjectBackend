@@ -33,4 +33,8 @@ public class PromoterService {
     public Optional<Promoter> findPromoterByFiscalCode(User fiscalCode){
         return promoterRepository.findPromoterByFiscalCode(fiscalCode);
     }
+
+    public Optional<Promoter> findPromoterByEmail(String email){
+        return promoterRepository.findPromoterByEmail(email);
+    }
 }

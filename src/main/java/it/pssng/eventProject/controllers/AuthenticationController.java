@@ -1,7 +1,5 @@
 package it.pssng.eventProject.controllers;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -20,7 +18,6 @@ import lombok.RequiredArgsConstructor;
 public class AuthenticationController {
 
     private final AuthenticationService authenticationService;
-    private static Logger LOGGER = LoggerFactory.getLogger("AuthenticationController");
 
     @CrossOrigin(origins = "http://localhost:3000")
     @PostMapping("/login")

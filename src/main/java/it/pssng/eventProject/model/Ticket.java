@@ -15,8 +15,8 @@ public class Ticket {
     private Long ticketId;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "customer-fiscal-code", referencedColumnName = "customer-fiscal-code")
-    private Customer joinedCustomer;
+    @JoinColumn(name = "customer-fiscal-code", referencedColumnName = "fiscal-code")
+    private User joinedUser;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "event-id", referencedColumnName = "event-id")

@@ -38,5 +38,15 @@ public class EventRequest {
     private String expectedEventEnd;
     @Column(name = "event-name")
     private String eventName;
+    @Column(name = "event-description")
+    private String eventDescription;
+    @Column(name = "event-region")
+    private String eventRegion;
+    @Column(name = "event-pic-path")
+    private String eventPicPath;
+    @Column(name = "event-price")
+    private Double eventPrice;
+    @Column(name = "event-category")
+    private String eventCategory;
 
 }

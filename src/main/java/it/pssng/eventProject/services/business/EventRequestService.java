@@ -34,6 +34,14 @@ public class EventRequestService {
         eventRequestRepository.delete(data);
     }
 
+    public void acceptRequest(Long requestId) {
+        eventRequestRepository.acceptRequestById(requestId);
+    }
+
+    public void declineRequest(Long requestId) {
+        eventRequestRepository.declineRequestById(requestId);
+    }
+
     public EventRequestDTO convEventRequestDTO(EventRequest data) {
         return modelMapper.map(data, EventRequestDTO.class);
     }

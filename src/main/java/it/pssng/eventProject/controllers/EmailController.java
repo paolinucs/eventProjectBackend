@@ -9,7 +9,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import it.pssng.eventProject.dto.TicketSupport;
+import it.pssng.eventProject.exception.EventNotFoundException;
 import it.pssng.eventProject.exception.UserNotFoundException;
+import it.pssng.eventProject.services.business.EventRequestService;
 import it.pssng.eventProject.services.mail.ForgotPasswordMailService;
 import it.pssng.eventProject.services.mail.TicketSupportMailService;
 import lombok.AllArgsConstructor;
@@ -21,6 +23,7 @@ public class EmailController {
 
     private final TicketSupportMailService contactUsService;
     private final ForgotPasswordMailService forgotPasswordMailService;
+    private final EventRequestService eventRequestService;
 
     @CrossOrigin(origins = "http://localhost:3000")
     @PostMapping("/send_support_ticket")
@@ -39,5 +42,21 @@ public class EmailController {
             return ResponseEntity.notFound().build();
         }
     }
+
+    @CrossOrigin(origins = "http://localhost:3000")
+    @PostMapping("/accept_event_request/{eventRequestId}")
+    public ResponseEntity<Void> acceptEventRequest(@PathVariable Long eventRequestId) throws EventNotFoundException {
+        eventRequestService.acceptRequest(eventRequestId);
+        return ResponseEntity.ok().build();
+
+    }
+
+    @CrossOrigin(origins = "http://localhost:3000")
+    @PostMapping("/decline_event_request/{eventRequestId}")
+    public ResponseEntity<Void> declineEventRequest(@PathVariable Long eventRequestId) {
+        eventRequestService.declineRequest(eventRequestId);
+        return ResponseEntity.ok().build();
+    }
+
 
 }
