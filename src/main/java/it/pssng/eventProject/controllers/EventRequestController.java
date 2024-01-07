@@ -3,6 +3,7 @@ package it.pssng.eventProject.controllers;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -53,6 +54,7 @@ public class EventRequestController {
     /*
      * Save a new Event Request
      */
+    @CrossOrigin(origins="http://localhost:3000/")
     @PostMapping("/new")
     public ResponseEntity<EventRequestDTO> saveNewEventRequest(@RequestBody EventRequestDTO data) throws Exception {
         try {
@@ -69,6 +71,7 @@ public class EventRequestController {
     /*
      * Delete existing event request
      */
+    @CrossOrigin(origins="http://localhost:3000/")
     @PostMapping("/delete")
     public void deleteExistingEventRequest(EventRequestDTO data) {
         try {
