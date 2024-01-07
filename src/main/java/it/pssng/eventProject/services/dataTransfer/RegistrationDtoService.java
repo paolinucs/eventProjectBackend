@@ -26,7 +26,7 @@ public class RegistrationDtoService {
             throw new DataNotCorrectlyPassedException();
 
         User newUserData = new User();
-        newUserData.setUserName(newData.getFiscalCode());
+        newUserData.setFiscalCode(newData.getFiscalCode());
         newUserData.setPassword(newData.getPassword());
         newUserData.setRole("ROLE_PROMOTER");
 
@@ -44,7 +44,7 @@ public class RegistrationDtoService {
         Promoter savedPromoter = promoterService.savePromoter(newPromoterData);
 
         RegistrationDTO returnData = new RegistrationDTO();
-        returnData.setFiscalCode(savedPromoter.getPromoterFiscalCode().getUserName());
+        returnData.setFiscalCode(savedPromoter.getPromoterFiscalCode().getFiscalCode());
         returnData.setName(savedPromoter.getPromoterName());
         returnData.setSurname(savedPromoter.getPromoterSurname());
         returnData.setNationality(savedPromoter.getPromoterNationality());
@@ -68,7 +68,7 @@ public class RegistrationDtoService {
             throw new DataNotCorrectlyPassedException();
 
         User newUserData = new User();
-        newUserData.setUserName(newData.getFiscalCode());
+        newUserData.setFiscalCode(newData.getFiscalCode());
         newUserData.setPassword(newData.getPassword());
         newUserData.setRole("ROLE_CUSTOMER");
 
@@ -86,7 +86,7 @@ public class RegistrationDtoService {
         Customer savedCustomer = customerService.saveCustomer(newCustomerData);
 
         RegistrationDTO returnData = new RegistrationDTO();
-        returnData.setFiscalCode(savedCustomer.getCustomerFiscalCode().getUserName());
+        returnData.setFiscalCode(savedCustomer.getCustomerFiscalCode().getFiscalCode());
         returnData.setName(savedCustomer.getCustomerName());
         returnData.setSurname(savedCustomer.getCustomerSurname());
         returnData.setNationality(savedCustomer.getCustomerNationality());

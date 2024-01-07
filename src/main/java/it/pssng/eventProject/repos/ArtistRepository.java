@@ -3,5 +3,5 @@ import org.springframework.data.jpa.repository.JpaRepository;
 
 import it.pssng.eventProject.model.Artist;
 
-public interface ArtistRepository extends JpaRepository<Artist, String> {
+public interface ArtistRepository extends JpaRepository<Artist, Long> {
 }

@@ -1,6 +1,7 @@
 package it.pssng.eventProject.services.business;
 
 import it.pssng.eventProject.model.Promoter;
+import it.pssng.eventProject.model.User;
 import it.pssng.eventProject.repos.PromoterRepository;
 import lombok.AllArgsConstructor;
 
@@ -20,12 +21,16 @@ public class PromoterService {
         return fetchedPromoters;
     }
 
-    public Promoter getPromoterByFiscalCode(String query) {
-        Optional<Promoter> fetchedPromoter = promoterRepository.findById(query);
-        return fetchedPromoter.orElse(null);
+    public Promoter findPromoterById(Long id) {
+        Optional<Promoter> foundId = promoterRepository.findById(id);
+        return foundId.orElse(null);
     }
 
     public Promoter savePromoter(Promoter data) {
         return promoterRepository.save(data);
+    }
+
+    public Optional<Promoter> findPromoterByFiscalCode(User fiscalCode){
+        return promoterRepository.findPromoterByFiscalCode(fiscalCode);
     }
 }

@@ -12,7 +12,7 @@ public class User {
     @Column(name = "user-id")
     private Long userId;
     @Column(name = "fiscal-code", unique = true)
-    private String UserName;
+    private String fiscalCode;
     @Column(name = "password")
     private String Password;
     @Column(name = "role")

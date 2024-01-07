@@ -1,6 +1,7 @@
 package it.pssng.eventProject.services.business;
 
 import it.pssng.eventProject.model.Customer;
+import it.pssng.eventProject.model.User;
 import it.pssng.eventProject.repos.CustomerRepository;
 import lombok.AllArgsConstructor;
 
@@ -14,9 +15,9 @@ import java.util.Optional;
 public class CustomerService {
     private CustomerRepository customerRepository;
 
-    public Customer findCustomerByFiscalCode(String fiscalCode) {
-        Optional<Customer> foundCustomer = customerRepository.findById(fiscalCode);
-        return foundCustomer.orElse(null);
+    public Customer findCustomerById(Long id) {
+        Optional<Customer> foundId = customerRepository.findById(id);
+        return foundId.orElse(null);
     }
 
     public List<Customer> findListAll() {
@@ -36,6 +37,10 @@ public class CustomerService {
         }
 
         return true;
+    }
+
+    public Optional<Customer> findCustomerByFiscalCode(User fiscalCode) {
+        return customerRepository.findCustomerByFiscalCode(fiscalCode);
     }
 
 }

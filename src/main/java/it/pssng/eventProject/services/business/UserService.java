@@ -17,9 +17,9 @@ public class UserService {
         return userRepository.save(newUserData);
     }
 
-    public User findUserByFiscalCode(String fiscalCode) {
+    public Optional<User> findUserByFiscalCode(String fiscalCode) {
         Optional<User> fetchedUser = userRepository.findUserByFiscalCode(fiscalCode);
-        return fetchedUser.orElse(null);
+        return fetchedUser;
     }
 
 }

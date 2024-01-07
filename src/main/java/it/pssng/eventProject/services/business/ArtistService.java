@@ -13,9 +13,9 @@ import java.util.Optional;
 public class ArtistService {
     private ArtistRepository artistRepository;
 
-    public Artist findArtistByFiscalCode(String fiscalCode) {
-        Optional<Artist> foundFiscalCode = artistRepository.findById(fiscalCode);
-        return foundFiscalCode.orElse(null);
+    public Artist findArtistById(Long id) {
+        Optional<Artist> foundId = artistRepository.findById(id);
+        return foundId.orElse(null);
     }
 
 }

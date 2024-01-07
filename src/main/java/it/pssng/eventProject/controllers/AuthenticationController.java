@@ -9,8 +9,8 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import it.pssng.eventProject.dto.UserDTO;
 import it.pssng.eventProject.exception.UserNotFoundException;
-import it.pssng.eventProject.model.User;
 import it.pssng.eventProject.services.dataTransfer.AuthenticationService;
 import lombok.RequiredArgsConstructor;
 
@@ -24,19 +24,15 @@ public class AuthenticationController {
 
     @CrossOrigin(origins = "http://localhost:3000")
     @PostMapping("/login")
-    public void login(@RequestBody User data) throws UserNotFoundException {
-        boolean isAuthorized = false;
-
+    public ResponseEntity<String> login(@RequestBody UserDTO data) throws UserNotFoundException {
+        String authkey;
         try {
-            isAuthorized = authenticationService.authenticate(data);
+            authkey = authenticationService.authenticate(data);
         } catch (UserNotFoundException exc) {
-            ResponseEntity.notFound().build();
+            return ResponseEntity.notFound().build();
         }
 
-        if (isAuthorized)
-            ResponseEntity.ok().build();
-        else
-            ResponseEntity.badRequest().build();
+        return ResponseEntity.ok(authkey);
     }
 
 }
