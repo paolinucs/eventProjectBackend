@@ -32,13 +32,7 @@ public class EventDataController {
     @GetMapping("/get_all")
     public ResponseEntity<List<FetchEventData>> getAllEvents() {
         List<FetchEventData> fetchedEvents = eventDtoService.getAllEvents();
-        if (!fetchedEvents.isEmpty()) {
-            LOGGER.info("/api/events/get_all ended succesfully");
-            return ResponseEntity.ok(fetchedEvents);
-        }
-
-        LOGGER.info("/api/events/get_all ended succesfully");
-        return ResponseEntity.noContent().build();
+        return ResponseEntity.ok(fetchedEvents);
     }
 
     /*

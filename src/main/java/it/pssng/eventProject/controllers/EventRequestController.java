@@ -57,15 +57,15 @@ public class EventRequestController {
     @CrossOrigin(origins="http://localhost:3000/")
     @PostMapping("/new")
     public ResponseEntity<EventRequestDTO> saveNewEventRequest(@RequestBody EventRequestDTO data) throws Exception {
-        try {
+        // try {
             EventRequestDTO savedEventRequestData = eventRequestDtoService.saveNewEventRequest(data);
             LOGGER.info("/api/event_request/new ended succesfully");
             return ResponseEntity.ok(savedEventRequestData);
 
-        } catch (Exception exc) {
-            LOGGER.info("Operation /api/event_request/new cannot be ended because of invalid json input\n" + exc);
-            return ResponseEntity.badRequest().build();
-        }
+        // } catch (Exception exc) {
+        //     LOGGER.info("Operation /api/event_request/new cannot be ended because of invalid json input\n" + exc);
+        //     return ResponseEntity.badRequest().build();
+        // }
     }
 
     /*

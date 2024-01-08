@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 
 import it.pssng.eventProject.dto.EventRequestDTO;
+import it.pssng.eventProject.exception.UserNotFoundException;
 import it.pssng.eventProject.model.Promoter;
 import it.pssng.eventProject.model.User;
 import it.pssng.eventProject.services.business.PromoterService;
@@ -26,9 +27,11 @@ public class RequestMailService {
         private final PromoterService promoterService;
         private final UserService userService;
 
-        public void sendEventRequestMail(EventRequestDTO eventRequestData) {
+        public void sendEventRequestMail(EventRequestDTO eventRequestData) throws UserNotFoundException {
 
                 Optional<User> user = userService.findUserByFiscalCode(eventRequestData.getPromoterFiscalCode());
+
+                if(!user.isPresent()) throw new UserNotFoundException();
 
                 Optional<Promoter> askingPromoter = promoterService.findPromoterByFiscalCode(user.get());
 

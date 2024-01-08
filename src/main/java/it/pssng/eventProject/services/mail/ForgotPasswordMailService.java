@@ -51,8 +51,8 @@ public class ForgotPasswordMailService {
         }
 
         if (promoterData.isPresent()) {
-            String mailTextPromoter = "Hi " + customerData.get().getCustomerName() + " "
-                    + customerData.get().getCustomerSurname()
+            String mailTextPromoter = "Hi " + promoterData.get().getPromoterName() + " "
+                    + promoterData.get().getPromoterSurname()
                     + ",\nIt seems that you forgot your promoter's account password.\nHere it is: "
                     + userData.get().getPassword() + "\n\n\n\n" + this.disclaimer;
             String userEmail = promoterData.get().getPromoterEmail();

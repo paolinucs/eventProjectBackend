@@ -67,9 +67,7 @@ public class FetchEventDataService {
                 fetchedEvents.add(this.mapToDataTransfer(event));
 
             return fetchedEvents;
-        }
-
-        return null;
+        }else return new ArrayList<>();
     }
 
     public List<FetchEventData> getAllEventsByCategory(String category) {
